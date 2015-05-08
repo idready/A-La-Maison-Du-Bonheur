@@ -1,0 +1,15 @@
+node_modules
+dist
+.tmp
+app/.sass-cache
+bower_components
+
+#custom
+test
+.vagrant
+
+# Database, ressources &  more
+
+
+*.sql
+*.zip

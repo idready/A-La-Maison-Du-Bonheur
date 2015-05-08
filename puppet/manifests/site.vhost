@@ -1,0 +1,27 @@
+NameVirtualHost *:8090
+
+<VirtualHost *:80>
+  DocumentRoot "/var/www/"
+  ServerName alamaisondubonheur.dev.fr
+
+  <Directory /var/www/>
+    AllowOverride All
+  </Directory>
+
+  ErrorLog "/var/log/apache2/alamaisondubonheur.error.log"
+  CustomLog "/var/log/apache2/alamaisondubonheur.access.log" common
+
+</VirtualHost>
+
+<VirtualHost *:8090>
+  DocumentRoot "/var/www/"
+  ServerName alamaisondubonheur.dev.fr
+
+  <Directory /var/www/>
+    AllowOverride All
+  </Directory>
+
+  ErrorLog "/var/log/apache2/alamaisondubonheur.error.log"
+  CustomLog "/var/log/apache2/alamaisondubonheur.access.log" common
+
+</VirtualHost>
