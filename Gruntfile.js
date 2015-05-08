@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         files: ['Gruntfile.js']
       },
       sass: {
-        files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%= config.app %>/sass/{,*/}*.{scss,sass}'],
         tasks: ['sass:server', 'autoprefixer']
       },
       styles: {
@@ -150,15 +150,17 @@ module.exports = function (grunt) {
     },
 
     // Compiles Sass to CSS and generates necessary files if requested
+    // Install grunt-sass to avoid any workaround for libsass missing features like lists.
+    // https://github.com/sass/libsass/issues/263
     sass: {
       options: {
-        sourceMap: true,
+        sourceMap: true, // This crashed libsass compile and generate : Segmentation fault (core dumped) error
         includePaths: ['bower_components']
         },
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/styles',
+          cwd: '<%= config.app %>/sass',
           src: ['*.{scss,sass}'],
           dest: '.tmp/styles',
           ext: '.css'
@@ -167,7 +169,7 @@ module.exports = function (grunt) {
       server: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/styles',
+          cwd: '<%= config.app %>/sass',
           src: ['*.{scss,sass}'],
           dest: '.tmp/styles',
           ext: '.css'
@@ -197,7 +199,7 @@ module.exports = function (grunt) {
         src: ['<%= config.app %>/index.html']
       },
       sass: {
-        src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        src: ['<%= config.app %>/sass/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
     },

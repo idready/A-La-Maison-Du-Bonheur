@@ -1,0 +1,20 @@
+
+@include exports(form) {
+
+/* ===========================================
+ * Textarea
+ * =========================================== */
+ 
+/* source: 
+ * [1] foundation.zurb.com
+ * [2] Twitter bootstrap
+ * ==================================== */
+
+// [2]
+textarea {
+  height: auto;
+  width: 100%;
+  min-height: rem(100px);
+}
+
+} // Include component if required.
