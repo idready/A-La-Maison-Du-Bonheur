@@ -36,7 +36,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= config.app %>/scripts/{,*/}*.js'],
-        tasks: ['jshint'],
+        tasks: ['newer:concact', 'newer:uglify', 'jshint'],
         options: {
           livereload: true
         }
@@ -55,6 +55,12 @@ module.exports = function (grunt) {
       styles: {
         files: ['<%= config.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
+      },
+      svg: {
+        files: [
+          '<%= config.app %>/images/svg/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}'
+        ],
+        tasks: ['newer:svgmin', 'newer:svgstore']
       },
       livereload: {
         options: {
@@ -108,6 +114,29 @@ module.exports = function (grunt) {
           livereload: false
         }
       }
+    },
+
+    // merge all js files
+    concact: {
+        default: {
+          '<%= config.app %>/scripts/main_dev.js': [
+            'node_modules/lazysizes/lazysizes.min.js',
+            'node_modules/svg4everybody/svg4everybody.min.js',
+            'bower_components/jquery/dist/jquery.js',
+            'scripts/main.js'
+          ]
+        },
+        dist: {}
+    },
+
+    // minify all js files
+    uglify: {
+      default: {
+        '<%= config.app %>/scripts/scripts.js' : [
+          '<%= config.app %>/scripts/main_dev.js'
+        ]
+      },
+      dist: {}
     },
 
     // Empties folders to start fresh
@@ -254,15 +283,47 @@ module.exports = function (grunt) {
       }
     },
 
+    // optimize svg
     svgmin: {
+      options: {
+          plugins: [
+              { removeViewBox: false },
+              { removeUselessStrokeAndFill: false },
+              { cleanupIDs: false }
+          ]
+      },
+      default: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/images/svg/raws',
+          src: '{,*/}*.svg',
+          dest: '<%= config.app %>/images/svg/sprites'
+        }]
+      },
       dist: {
         files: [{
           expand: true,
           cwd: '<%= config.app %>/images',
           src: '{,*/}*.svg',
-          dest: '<%= config.dist %>/images'
+          dest: '<%= config.dist %>/images/svg/sprites'
         }]
       }
+    },
+
+    // create svg sprite
+    svgstore: {
+      options: {
+        prefix : 'shape-', // This will prefix each <g> ID
+        // externalDefs: '<%= yeoman.app %>/frontend/bytel/default/medias/images/svgs-def/external-defs.svg'
+        // The next two options below remove gradients on FF
+        // cleanup: ['style', 'id'],
+        // cleanupdefs: true
+      },
+      default: { // SVG sprite for all pages
+        files: {
+          '<%= config.app %>/images/svg/icons-defs.svg': ['<%= config.app %>/images/svg/sprites/**/*.svg']
+        }
+      },
     },
 
     htmlmin: {
