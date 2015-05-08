@@ -1,8 +1,10 @@
 node_modules
 dist
 .tmp
+.sass-cache
 app/.sass-cache
 bower_components
+
 
 #custom
 test
