@@ -1,9 +1,0 @@
-1. Aller sur le site suivant : http://www.vagrantup.com/downloads
-2. Télécharger la version de windows appropriée (32 ou 64) actuellement c'est la version 1.7.2 qui est en ligne
-3. Installer dans le C:\ ou dans Program Files (x86) si la version de windows est en 32 bits
-
-4. Installer GItBash https://github.com/msysgit/msysgit/releases/ et Récupérer le fichier : Git-1.9.5-preview20141217.exe (Actuellement)
-5. Lancer Gitbash (rechercher dans le champ)
-6. Taper la commande 'vagrant -v' pour afficher la version de vagrant et ainsi s'assurer qu'il est installé.
-7. taper la commande 'vagrant box add https://atlas.hashicorp.com/ubuntu/boxes/trusty64' (ubuntu/trusty64)
-8. Télécharger Virtualbox (https://www.virtualbox.org/wiki/Downloads) version windows 
