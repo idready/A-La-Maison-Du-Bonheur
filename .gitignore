@@ -5,6 +5,10 @@ dist
 app/.sass-cache
 bower_components
 
+.gitattributes
+.jshintrc
+.yo-rc.json
+
 
 #custom
 test
