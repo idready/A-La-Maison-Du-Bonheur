@@ -25,6 +25,9 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
+    // This makes the package values accessible
+    pkg: grunt.file.readJSON('package.json'),
+
     // Project settings
     config: config,
 
@@ -36,7 +39,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= config.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:concact', 'newer:uglify', 'jshint'],
+        tasks: ['concat:default', 'uglify:default', 'jshint'],
         options: {
           livereload: true
         }
@@ -117,24 +120,32 @@ module.exports = function (grunt) {
     },
 
     // merge all js files
-    concact: {
+    concat: {
+        options: {
+          separator: ';',
+          stripBanners: true,
+          banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+          '<%= grunt.template.today("yyyy-mm-dd") %> */',
+        },
         default: {
-          '<%= config.app %>/scripts/main_dev.js': [
-            'node_modules/lazysizes/lazysizes.min.js',
-            'node_modules/svg4everybody/svg4everybody.min.js',
-            'bower_components/jquery/dist/jquery.js',
-            'scripts/main.js'
-          ]
+          src: ['node_modules/lazysizes/lazysizes.min.js', 'node_modules/svg4everybody/svg4everybody.min.js', 'bower_components/jquery/dist/jquery.js', 'scripts/main.js'],
+          dest: '<%= config.app %>/scripts/main_dev.js',
         },
         dist: {}
     },
 
     // minify all js files
     uglify: {
+      options: {
+        screwIE8: true,
+        // separator: ';',
+        stripBanners: true,
+        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+        '<%= grunt.template.today("yyyy-mm-dd") %> */',
+      },
       default: {
-        '<%= config.app %>/scripts/scripts.js' : [
-          '<%= config.app %>/scripts/main_dev.js'
-        ]
+        src: ['<%= config.app %>/scripts/main_dev.js'],
+        dest: '<%= config.app %>/scripts/scripts.js',
       },
       dist: {}
     },
