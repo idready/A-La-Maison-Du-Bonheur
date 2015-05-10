@@ -52,12 +52,15 @@ module.exports = function (grunt) {
         files: ['Gruntfile.js']
       },
       sass: {
-        files: ['<%= config.app %>/sass/{,*/}*.{scss,sass}'],
-        tasks: ['sass:server', 'autoprefixer']
+        files: ['<%= config.app %>/sass/**/*.{scss,sass}'], // remember to prefer **/* folder match pattern for css
+        tasks: ['sass:server', 'autoprefixer:default'],
+        options: {
+          livereload: true
+        }
       },
       styles: {
         files: ['<%= config.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
+        tasks: ['newer:copy:styles', 'autoprefixer:default']
       },
       svg: {
         files: [
@@ -71,7 +74,7 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= config.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
+          '<%= config.app %>/styles/{,*/}*.css',
           '<%= config.app %>/images/{,*/}*'
         ]
       }
@@ -128,7 +131,7 @@ module.exports = function (grunt) {
           '<%= grunt.template.today("yyyy-mm-dd") %> */',
         },
         default: {
-          src: ['node_modules/lazysizes/lazysizes.min.js', 'node_modules/svg4everybody/svg4everybody.min.js', 'bower_components/jquery/dist/jquery.js', 'scripts/main.js'],
+          src: ['node_modules/lazysizes/lazysizes.min.js', 'node_modules/svg4everybody/svg4everybody.min.js', 'bower_components/jquery/dist/jquery.js', '<%= config.app %>/scripts/main.js'],
           dest: '<%= config.app %>/scripts/main_dev.js',
         },
         dist: {}
@@ -137,7 +140,7 @@ module.exports = function (grunt) {
     // minify all js files
     uglify: {
       options: {
-        screwIE8: true,
+        // screwIE8: true,
         // separator: ';',
         stripBanners: true,
         banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
@@ -173,7 +176,8 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        '<%= config.app %>/scripts/{,*/}*.js',
+        '<%= config.app %>/scripts/main.js',
+        // '<%= config.app %>/scripts/{,*/}*.js',
         '!<%= config.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
       ]
@@ -211,7 +215,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= config.app %>/sass',
           src: ['*.{scss,sass}'],
-          dest: '.tmp/styles',
+          dest: '<%= config.app %>/styles',
           ext: '.css'
         }]
       }
@@ -222,12 +226,20 @@ module.exports = function (grunt) {
       options: {
         browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
       },
+      default: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/styles/',
+          src: '{,*/}*.css',
+          dest: '<%= config.app %>/styles/'
+        }]
+      },
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/styles/',
+          cwd: '<%= config.app %>/styles/',
           src: '{,*/}*.css',
-          dest: '.tmp/styles/'
+          dest: '.<%= config.dist %>/styles/'
         }]
       }
     },
@@ -337,6 +349,36 @@ module.exports = function (grunt) {
       },
     },
 
+    // Notify errors
+    notify: {
+
+        options: {
+            enabled: true,
+            max_jshint_notifications: 5, // maximum number of notifications from jshint output
+                title: 'ALaMaison', // defaults to the name in package.json, or will use project directory's name
+            success: false, // whether successful grunt executions should be notified automatically
+            duration: 3 // the duration of notification in seconds, for `notify-send only
+        },
+
+        watch: {
+
+            options: {
+              title: 'iDready Inte',  // optional
+              message: 'ALaMaison Website notifications', //required
+              spawn: true,
+              files: [
+                  '<%= config.app %>/sass/{,*/}*.{scss,css}',
+                  'tasks/**/*.js',
+                  'test/**/*.js'
+                ],
+                tasks: [
+                  'notify:custom_options'
+                ]
+            }
+
+        }
+    },
+
     htmlmin: {
       dist: {
         options: {
@@ -408,7 +450,7 @@ module.exports = function (grunt) {
         expand: true,
         dot: true,
         cwd: '<%= config.app %>/styles',
-        dest: '.tmp/styles/',
+        dest: '<%= config.app %>/styles/',
         src: '{,*/}*.css'
       }
     },
@@ -446,6 +488,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
+      'notify',
       'watch'
     ]);
   });

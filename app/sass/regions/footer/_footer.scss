@@ -5,3 +5,77 @@
 
 /* Specific rule section
  * ==================================== */
+
+ .page-footer {
+
+   background: $primary-color;
+   font-size: rem(14px);
+   min-height: rem(140px);
+   position: relative;
+
+   // just for test
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+
+   // Common
+   .useful-links__item--icon,
+   .icon {
+     transition: $default-transition;
+   }
+
+   .useful-links {
+     margin-top: rem(40px);
+   }
+
+   // link itself
+   .useful-links__item {
+
+      margin-bottom: rem(30px);
+      text-align: center;
+
+      // @TODO: change this modifier name
+      .useful-links__item--icon {
+
+        color: darken($white, 30%);
+        display: inline-block;
+
+        &:hover {
+
+          color: $secondary-color;
+
+          .icon {
+            margin-right: rem(20px);
+          }
+        }
+
+      }
+
+      .icon {
+        fill: darken($white, 30%);
+        height: 3ex;
+        margin-right: rem(10px);
+        vertical-align: middle;
+        width: 3ex;
+      }
+
+    }
+
+    // copyright text
+    .cp {
+
+       bottom: 0;
+       color: darken($white, 30%);
+       margin-bottom: rem(20px);
+       margin-top: rem(20px);
+       text-align: center;
+    }
+
+    // Responsiveness
+    @include mq(md) {
+
+      .useful-links {
+        margin-top: rem(20px);
+      }
+    }
+ }

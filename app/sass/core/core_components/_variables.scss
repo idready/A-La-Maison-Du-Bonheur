@@ -15,6 +15,8 @@
 
 // Same old naming conventions
 
+$black: #000000 !default;
+$white: #ffffff !default;
 $primary-color: #2c2d2f !default;
 $secondary-color: #369ff0 !default;
 $brand-yellow: #cda003 !default;
@@ -31,12 +33,13 @@ $gray-light: lighten($gray, 8) !default;
 /* Grids
  * ==================================== */
 
+$grid-class-name: 'span' !default;
 $grid-columns: 12 !default;
 $grid-gutter: 20px !default;
 $grid-one-col: (100 / $grid-columns) * 1% !default;
 $grid-row-min-height: 1px !default;
 
-$max-screen-width: rem(1400px) !default;
+$max-screen-width: 1200px !default;
 
 $bp-screen-size: (
 
@@ -65,17 +68,22 @@ $line-height-computed: floor(($base-font-size * $base-line-height)) !default; //
 /* Font-face names
  * ==================================== */
 
-$open-sans-regular: 'Open-Sans-Regular';
-
+$pt-sans-regular-path: 'fonts/PT-Sans/Regular/';
+$pt-sans-regular: 'PT-Sans-Regular';
+$pt-sans-bold-path: 'fonts/PT-Sans/Bold/';
+$pt-sans-bold: 'PT-Sans-Bold';
+$pt-sans-italic-path: 'fonts/PT-Sans/Italic/';
+$pt-sans-italic: 'PT-Sans-Italic';
 
 /* Animations
  * ==================================== */
 
-$animation-duration: .3s !default;
+$animation-duration: 0.3s !default;
 $animation-delay: 0s !default;
 $animation-function: ease !default;
 $animation-fill: both !default;
 $animation-visibility: hidden !default;
+$default-transition: all $animation-duration $animation-function;
 
 
 /* Buttons

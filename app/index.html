@@ -34,15 +34,67 @@
     <!-- build:css(.tmp) styles/home.css -->
     <link rel="stylesheet" href="styles/home.css">
     <!-- endbuild -->
+    <!-- Modernizr -->
+    <script src="scripts/vendor/modernizr.custom.v2.8.3.js"></script>
+
+    <!-- endbuild -->
   </head>
   <body>
-    <!--[if lt IE 10]>
+    <!--[if lt IE 9]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <main role="main" class="wrapper">
       <!-- Add your site or application content here -->
-    </main> 
+
+      <!-- Header -->
+      <header class="page-nav">
+
+        <div class="grid-row content">
+          <a href="/" class="logo fadeInLeft animated"><svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-logo" /></svg></a>
+          <nav class="page-nav__menu">
+            <ul class="nav-list">
+              <li class="nav-list__link current">Accueil</li>
+              <li class="nav-list__link"><a href="#">Nos chambres</a></li>
+              <li class="nav-list__link"><a href="#">Nos Plus</a></li>
+              <li class="nav-list__link"><a href="#">A découvrir</a></li>
+              <li class="nav-list__link"><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Footer -->
+      <footer class="page-footer">
+        <div class="grid-row useful-links content">
+          <div class="span-xs-6 span-sm-3 useful-links__item">
+            <a href="#" class="useful-links__item--icon">
+              <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-link" /></svg>
+              Liens utiles
+            </a>
+          </div>
+          <div class="span-xs-6 span-sm-3 useful-links__item">
+            <a href="#" class="useful-links__item--icon">
+              <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-map-point" /></svg>
+              5 Impasse des Bas de Soie, 49630 Mazé
+            </a>
+          </div>
+          <div class="span-xs-6 span-sm-3 useful-links__item">
+            <a href="#" class="useful-links__item--icon">
+              <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-phone" /></svg>
+              02 41 00 90 80
+            </a>
+          </div>
+          <div class="span-xs-6 span-sm-3 useful-links__item">
+            <a href="#" class="useful-links__item--icon">
+              <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-document" /></svg>
+              Mentions légales
+            </a>
+          </div>
+        </div>
+        <p class="cp">Tous droits réservés &copy;2015</p>
+      </footer>
+    </main>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -60,8 +112,8 @@
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
 
-        <!-- build:js({app,.tmp}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/scripts.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

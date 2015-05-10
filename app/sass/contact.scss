@@ -42,7 +42,6 @@ $include-css: (
   utilities: true,
 );
 
-
 /* Core
  * ==================================== */
 @import 'core/core';
@@ -57,7 +56,7 @@ $include-css: (
 
 /* Page rule here
  * ==================================== */
-@import 'pages/home';
+@import 'pages/contact';
 
 /* Shame file here, since IE specic must surely override all other rules
  * ==================================== */

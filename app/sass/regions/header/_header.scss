@@ -5,3 +5,109 @@
 
 /* Specific rule section
  * ==================================== */
+
+// Common
+.page-nav,
+.page-nav__menu,
+.nav-list,
+.nav-list__link,
+.nav-list__link > a {
+
+  transition: $default-transition;
+}
+
+.page-nav {
+
+ background: $primary-color;
+ min-height: rem(60px);
+
+  .logo {
+
+    display: block;
+    height: rem(45px);
+    margin: rem(20px) 0;
+    transition: all 1s $animation-function;
+
+    .icon {
+      fill: $brand-yellow;
+    }
+  }
+
+  .page-nav__menu {
+
+    margin-bottom: rem(20px);
+    text-align: center;
+
+    .nav-list {
+
+      display: inline-block;
+
+      @include clearfix;
+    }
+    .nav-list__link {
+
+      color: $white;
+      display: block;
+      font-size: rem(22px);
+      line-height: 1;
+      margin: rem(10px) 0 rem(20px) 0;
+
+      > a {
+        color: $white;
+        transition: $default-transition;
+      }
+
+      > a:hover,
+      &.current {
+        color: $secondary-color; // $brand-yellow
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+    }
+
+  }
+
+  // Responsiveness
+  @include mq(600px) {
+
+    // Menu on the left
+    .page-nav__menu {
+
+      .nav-list__link {
+
+        float: left;
+        font-size: rem(18px);
+        margin-bottom: 0;
+        margin-top: 0;
+        margin-right: rem(20px);
+
+      }
+
+    }
+  }
+
+  @include mq(800px) {
+
+    // logo and menu on the opposite side
+    .logo {
+      display: inline-block;
+      float: left;
+      height: rem(35px);
+      width: rem(280px);
+    }
+
+    .page-nav__menu {
+
+      float: right;
+      margin-bottom: 0;
+      position: relative;
+      top: rem(30px);
+    }
+
+  }
+
+
+}

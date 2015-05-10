@@ -6,19 +6,20 @@
 /* Change this and add your own
  * ==================================== */
 
-// Example: 
+// Example:
 // @include font-face('fonts/Open-Sans/Regular/', 'OpenSans-Regular-webfont', $open-sans-regular, $open-sans-regular);
 
 @mixin font-face($path, $style-name, $file, $family, $category: 'serif') {
 
-    $filepath: $path + $family + "/" + $file;
+    $filepath: $path + "/" + $file;
 
+    @warn $filepath;
     @font-face {
         font-family: "#{$style-name}";
         src: url($filepath + ".eot");
-        src: url($filepath + ".eot?#iefix") format('embedded-opentype'), 
-        	 url($filepath + ".woff") format('woff'), 
-        	 url($filepath + ".ttf")  format('truetype'), 
+        src: url($filepath + ".eot?#iefix") format('embedded-opentype'),
+        	 url($filepath + ".woff") format('woff'),
+        	 url($filepath + ".ttf")  format('truetype'),
         	 url($filepath + ".svg#" + $style-name + "") format('svg');
     }
     %#{$style-name} {
@@ -34,4 +35,3 @@
     }
 
 }
-
