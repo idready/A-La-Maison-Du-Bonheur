@@ -74,6 +74,11 @@
     // Responsiveness
     @include mq(md) {
 
+      .useful-links__item {
+
+        min-height: rem(50px); // avoid animation break and define a min-height for unless two lines
+      }
+
       .useful-links {
         margin-top: rem(20px);
       }
