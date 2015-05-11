@@ -52,11 +52,14 @@
       }
 
       .icon {
+        display: inline-block;
         fill: darken($white, 30%);
-        height: 3ex;
+        height: 16px;
         margin-right: rem(10px);
+        position: relative;
+        top: -0.1rem;
         vertical-align: middle;
-        width: 3ex;
+        width: 16px;
       }
 
     }
@@ -76,7 +79,7 @@
 
       .useful-links__item {
 
-        min-height: rem(50px); // avoid animation break and define a min-height for unless two lines
+        // min-height: rem(50px); avoid animation break and define a min-height for unless two lines
       }
 
       .useful-links {

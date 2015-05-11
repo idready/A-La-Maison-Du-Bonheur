@@ -3,5 +3,30 @@
  * Specific rules a page
  * =========================================== */
 
-/* Specific rule for a page 
+/* Specific rule for a page
  * ==================================== */
+
+.gallerie-slides {
+
+  position: relative;
+
+  .next-slide,
+  .prev-slide {
+
+    cursor: pointer;
+    fill: $brand-yellow;
+    position: absolute;
+    transition: $default-transition;
+  }
+
+  // Responsiveness
+  @include mq('sm') {
+
+    .next-slide,
+    .prev-slide {
+      display: none;
+      opacity: 0;
+    }
+  }
+
+}

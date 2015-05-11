@@ -39,7 +39,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= config.app %>/scripts/{,*/}*.js'],
-        tasks: ['concat:default', 'uglify:default', 'jshint'],
+        tasks: ['concat', 'uglify', 'jshint'],
         options: {
           livereload: true
         }
@@ -130,9 +130,9 @@ module.exports = function (grunt) {
           banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
           '<%= grunt.template.today("yyyy-mm-dd") %> */',
         },
-        default: {
-          src: ['node_modules/lazysizes/lazysizes.min.js', 'node_modules/svg4everybody/svg4everybody.min.js', 'bower_components/jquery/dist/jquery.js', '<%= config.app %>/scripts/main.js'],
-          dest: '<%= config.app %>/scripts/main_dev.js',
+        home: {
+          src: ['node_modules/svg4everybody/svg4everybody.min.js', 'node_modules/lazysizes/lazysizes.min.js', 'bower_components/jquery/dist/jquery.js', '<%= config.app %>/scripts/vendor/bxslider/jquery.bxslider.min.js', '<%= config.app %>/scripts/main.js'],
+          dest: '<%= config.app %>/scripts/home_dev.js',
         },
         dist: {}
     },
@@ -146,9 +146,9 @@ module.exports = function (grunt) {
         banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
         '<%= grunt.template.today("yyyy-mm-dd") %> */',
       },
-      default: {
-        src: ['<%= config.app %>/scripts/main_dev.js'],
-        dest: '<%= config.app %>/scripts/scripts.js',
+      home: {
+        src: ['<%= config.app %>/scripts/home_dev.js'],
+        dest: '<%= config.app %>/scripts/home.js',
       },
       dist: {}
     },
