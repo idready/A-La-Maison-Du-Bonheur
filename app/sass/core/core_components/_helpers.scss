@@ -20,6 +20,18 @@
   }
 }
 
+.clearfix {
+  @include clearfix;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}
+
 /* Useful functions from foundation.zurb.com
  * ==================================== */
 

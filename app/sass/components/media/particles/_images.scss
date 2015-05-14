@@ -11,7 +11,7 @@
  * [3] Inuit css framework
  * ==================================== */
 
-/* 
+/*
  * Credits to inuit.css framework https://github.com/inuitcss/base.images/blob/master/_base.images.scss
  * 1. Avoid Google map breakdown when setting max-width to 100% n images
  * 2. If specified do not put restriction if there is inline css (Note: Can still be remove if necessary)
@@ -26,8 +26,8 @@ img[height]{  // 2
 // [3]
 img {
     max-width: 100%;
-    font-style: italic;
-    vertical-align: middle;
+    // font-style: italic;
+    // vertical-align: middle;
 }
 
 } // Include component if required.

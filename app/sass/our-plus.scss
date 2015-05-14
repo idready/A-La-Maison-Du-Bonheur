@@ -26,7 +26,7 @@ $include-css: (
   label: true,
   badge: true,
   list: true,
-  medias: true,
+  medias: false,
   menu-bar: true,
   modal: true,
   motion: true,
@@ -57,7 +57,7 @@ $include-css: (
 
 /* Page rule here
  * ==================================== */
-@import 'pages/home';
+@import 'pages/our-plus';
 
 /* Shame file here, since IE specic must surely override all other rules
  * ==================================== */

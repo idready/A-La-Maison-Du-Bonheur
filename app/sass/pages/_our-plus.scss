@@ -1,0 +1,114 @@
+
+/* ===========================================
+ * Specific rules a page
+ * =========================================== */
+
+/* Specific rule for a page
+ * ==================================== */
+
+.wrapper {
+  position: relative;
+}
+
+.our-plus {
+
+  .our-plus__title {
+    font-size: rem(30px);
+    margin-top: 0;
+    text-decoration: underline;
+    transition: $default-transition;
+  }
+  .our-plus__features,
+  .our-plus__bonuses {
+    min-height: (30px);
+    padding: rem(40px) 0;
+  }
+
+  .our-plus__features {
+    background: $secondary-color;
+    color: $white;
+  }
+
+  .our-plus__bonuses {
+    background: $salomie;
+  }
+
+  // each feature and its properties
+  %our-plus__goodies {
+
+    margin-top: rem(20px);
+    text-align: center;
+
+    .title {
+      font-family: $pt-sans-bold;
+      font-size: rem(20px);
+      margin-bottom: rem(20px);
+    }
+
+    .icon {
+      fill: $white;
+      height: rem(60px);
+      width: rem(60px);
+    }
+
+    .features-list > li {
+      font-size: rem(16px);
+      margin-bottom: rem(5px);
+    }
+  }
+  .our-plus__feature,
+  .our-plus__bonus {
+
+    @extend %our-plus__goodies;
+  }
+
+  .our-plus__bonus {
+
+    .title {
+      font-family: $pt-sans-regular;
+      font-size: rem(26px);
+    }
+
+    .icon {
+      fill: $primary-color;
+      height: rem(100px);
+      width: auto;
+    }
+  }
+
+  // Responsiveness
+  @include mq('xs') {
+
+    .our-plus__title {
+      font-size: rem(40px);
+    }
+  }
+
+  @include mq('sm') {
+
+    .our-plus__features {
+
+      .our-plus__feature {
+
+        margin-top: rem(50px);
+
+        .title {
+          font-size: rem(22px);
+        }
+        .icon {
+          height: rem(80px);
+          width: rem(80px);
+        }
+      }
+
+    }
+    .our-plus__bonus {
+
+      .title {font-size: rem(30px);}
+      .icon {height: rem(128px);}
+    }
+
+  }
+
+
+}

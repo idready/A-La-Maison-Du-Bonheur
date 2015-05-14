@@ -11,12 +11,14 @@
    background: $primary-color;
    font-size: rem(14px);
    min-height: rem(140px);
+   padding-top: rem(10px);
    position: relative;
 
    // just for test
-   position: fixed;
-   bottom: 0;
+  //  position: fixed;
+  //  bottom: 0;
    width: 100%;
+  //  display: none;
 
    // Common
    .useful-links__item--icon,
@@ -45,7 +47,7 @@
           color: $secondary-color;
 
           .icon {
-            margin-right: rem(20px);
+            margin-right: rem(15px);
           }
         }
 

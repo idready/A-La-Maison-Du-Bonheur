@@ -83,9 +83,9 @@ module.exports = function (grunt) {
     // The actual grunt server settings
     connect: {
       options: {
-        port: 9000,
+        port: 9000, // +1
         open: true,
-        livereload: 35729,
+        livereload: 35729, //+1
         // Change this to '0.0.0.0' to access the server from outside
         hostname: 'localhost'
       },
@@ -103,7 +103,7 @@ module.exports = function (grunt) {
       test: {
         options: {
           open: false,
-          port: 9001,
+          port: 9001, // +1
           middleware: function(connect) {
             return [
               connect.static('.tmp'),
@@ -131,8 +131,23 @@ module.exports = function (grunt) {
           '<%= grunt.template.today("yyyy-mm-dd") %> */',
         },
         home: {
-          src: ['node_modules/svg4everybody/svg4everybody.min.js', 'node_modules/lazysizes/lazysizes.min.js', 'bower_components/jquery/dist/jquery.js', '<%= config.app %>/scripts/vendor/bxslider/jquery.bxslider.min.js', '<%= config.app %>/scripts/main.js'],
+          src: ['bower_components/svg4everybody/svg4everybody.min.js',
+                'bower_components/lazysizes/plugins/unveilhooks/ls.unveilhooks.min.js',
+                'bower_components/lazysizes/lazysizes.min.js',
+                'bower_components/lazysizes/plugins/bgset/ls.bgset.min.js',
+                'bower_components/lazysizes/plugins/respimg/ls.respimg.min.js',
+                'bower_components/jquery/dist/jquery.js',
+                'bower_components/dw-bxslider-4/dist/jquery.bxslider.min.js',
+                '<%= config.app %>/scripts/app-home.js',
+                '<%= config.app %>/scripts/main.js'],
           dest: '<%= config.app %>/scripts/home_dev.js',
+        },
+        ourPlus: {
+          src: ['bower_components/svg4everybody/svg4everybody.min.js',
+                'bower_components/jquery/dist/jquery.js',
+                '<%= config.app %>/scripts/app-our-plus.js',
+                '<%= config.app %>/scripts/main.js'],
+          dest: '<%= config.app %>/scripts/our-plus_dev.js',
         },
         dist: {}
     },
@@ -149,6 +164,10 @@ module.exports = function (grunt) {
       home: {
         src: ['<%= config.app %>/scripts/home_dev.js'],
         dest: '<%= config.app %>/scripts/home.js',
+      },
+      ourPlus: {
+        src: ['<%= config.app %>/scripts/our-plus_dev.js'],
+        dest: '<%= config.app %>/scripts/our-plus.js',
       },
       dist: {}
     },
@@ -188,7 +207,7 @@ module.exports = function (grunt) {
       all: {
         options: {
           run: true,
-          urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
+          urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/*.html']
         }
       }
     },
@@ -278,7 +297,7 @@ module.exports = function (grunt) {
       options: {
         dest: '<%= config.dist %>'
       },
-      html: '<%= config.app %>/index.html'
+      html: '<%= config.app %>/*.html'
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration

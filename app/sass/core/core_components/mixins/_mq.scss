@@ -28,7 +28,7 @@
     }
   }
   @else if $breakpoint == "xl" {
-    @media screen and ( min-width: rem($bp-xl-screen)) {
+    @media screen and ( min-width: rem($bp-xl-screen) ) {
       @content;
     }
   }

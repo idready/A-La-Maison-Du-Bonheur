@@ -111,13 +111,19 @@ body {
   @include clearfix();
 }
 
-.content {
+.content-wrapper {
    max-width: rem($max-screen-width);
    margin: 0 auto;
+   padding: 0 rem(20px);
+}
+
+.highlight-info {
+  font-family: $pt-sans-regular;
 }
 
 .icon {
   display: inline-block;
   height: 100%;
+  transition: $default-transition;
   width: 100%;
 }

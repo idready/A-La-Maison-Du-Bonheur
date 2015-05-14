@@ -50,13 +50,13 @@
       <!-- Header -->
       <header class="page-nav">
 
-        <div class="grid-row content">
+        <div class="grid-row content-wrapper">
           <a href="/" class="logo fadeInLeft animated"><svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-logo" /></svg></a>
-          <nav class="page-nav__menu">
+          <nav role="navigation" class="page-nav__menu">
             <ul class="nav-list">
               <li class="nav-list__link current">Accueil</li>
               <li class="nav-list__link"><a href="#">Nos chambres</a></li>
-              <li class="nav-list__link"><a href="#">Nos Plus</a></li>
+              <li class="nav-list__link"><a href="/nos-plus.html">Nos Plus</a></li>
               <li class="nav-list__link"><a href="#">A découvrir</a></li>
               <li class="nav-list__link"><a href="#">Contact</a></li>
             </ul>
@@ -64,12 +64,13 @@
         </div>
       </header>
 
-      <main role="main">
-        <div class="container">
-          <div class="gallerie-slides js-slides">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=" data-srcset="http://placehold.it/768x300 768w, http://placehold.it/2000x500 2000w" style="height: 300px;" data-sizes="auto" alt="" class="gallerie-slides__img lazyload">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=" data-srcset="http://placehold.it/768x300 768w, http://placehold.it/2000x500 2000w" style="height: 300px;" data-sizes="auto" alt="" class="gallerie-slides__img lazyload">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=" data-srcset="http://placehold.it/768x300 768w, http://placehold.it/2000x500 2000w" style="height: 300px;" data-sizes="auto" alt="" class="gallerie-slides__img lazyload">
+      <!-- Content -->
+      <section>
+        <div class="gallerie-slides container">
+          <div class="gallerie-slides__item js-slides">
+            <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=" data-srcset="http://placehold.it/768x300 768w, http://placehold.it/991x500 991w, http://placehold.it/2000x700 1200w" data-sizes="auto" alt="" class="gallerie-slides__img lazyload">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=" data-srcset="http://placehold.it/768x300 768w, http://placehold.it/991x500 991w, http://placehold.it/2000x700 1200w" data-sizes="auto" alt="" class="gallerie-slides__img lazyload">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=" data-srcset="http://placehold.it/768x300 768w, http://placehold.it/991x500 991w, http://placehold.it/2000x700 1200w" data-sizes="auto" alt="" class="gallerie-slides__img lazyload"> -->
             <!-- <div class="content">
               <button class="prev-slide">
                 <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-arrow-prev" /></svg>
@@ -78,12 +79,89 @@
                 <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-arrow-next" /></svg>
               </button>
             </div> -->
+            <div class="gallerie-slides__img">
+                <picture>
+                    <!--[if IE 9]><video style="display: none"><![endif]-->
+                    <source data-srcset="http://placehold.it/2500x700" media="(min-width: 991px)">
+                    <source data-srcset="http://placehold.it/900x500" media="(min-width: 768px)">
+                    <source data-srcset="http://placehold.it/600x300">
+                    <!--[if IE 9]></video><![endif]-->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" class="article__illustr lazyload" alt="">
+                </picture>
+                <noscript>
+                    <img src="http://placehold.it/768x300" class="article__illustr lazyload no-js" alt="">
+                </noscript>
+            </div>
+            <div class="gallerie-slides__img">
+                <picture>
+                    <!--[if IE 9]><video style="display: none"><![endif]-->
+                    <source data-srcset="http://placehold.it/2500x700" media="(min-width: 991px)">
+                    <source data-srcset="http://placehold.it/900x500" media="(min-width: 768px)">
+                    <source data-srcset="http://placehold.it/600x300">
+                    <!--[if IE 9]></video><![endif]-->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" class="article__illustr lazyload" alt="">
+                </picture>
+                <noscript>
+                    <img src="http://placehold.it/768x300" class="article__illustr lazyload no-js" alt="">
+                </noscript>
+            </div>
+            <div class="gallerie-slides__img">
+                <picture>
+                    <!--[if IE 9]><video style="display: none"><![endif]-->
+                    <source data-srcset="http://placehold.it/2500x700" media="(min-width: 991px)">
+                    <source data-srcset="http://placehold.it/900x500" media="(min-width: 768px)">
+                    <source data-srcset="http://placehold.it/600x300">
+                    <!--[if IE 9]></video><![endif]-->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" class="article__illustr lazyload" alt="">
+                </picture>
+                <noscript>
+                    <img src="http://placehold.it/768x300" class="article__illustr lazyload no-js" alt="">
+                </noscript>
+            </div>
+          </div>
+          <div class="gallerie-slides__controls content">
+            <p class="prev-slide" id="prev-slide">
+              <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-arrow-prev" /></svg>
+            </p>
+            <p class="next-slide" id="next-slide">
+              <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-arrow-next" /></svg>
+            </p>
           </div>
         </div>
-      </main>
+        <div class="page-content content-wrapper">
+          <h2 class="page-content__title">Bienvenue à La Maison Du Bonheur</h2>
+          <div class="page-content__text">
+            <p>En famille, entre amis, en amoureux, le temps d’un instant de bonheur, venez profiter de l’ambiance paisible de notre maison.</p>
+            <p>Vous serez séduits par l’environnement reposant dans un cadre qui privilégie votre bien-être.</p>
+            <p>Un accueil chaleureux vous est réservé par vos hôtes, <strong>Jacques</strong> et <strong>Marie-Hélène</strong>.</p>
+            <p>Vos hôtes, attentifs à votre bien-être, se feront un plaisir de vous recevoir dans ce <strong>havre de tranquillité</strong> durant toute l’année.</p>
+          </div>
+        </div>
+        <div class="content-wrapper clearfix hero-unit">
+          <div class="clearfix">
+            <div class="span-sm-6">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=" data-size="auto" data-srcset="http://placehold.it/768x400 768w, http://placehold.it/991x400 991w" alt="" class="lazyload">
+            </div>
+            <div class="span-sm-6">
+              <h4 class="hero-unit__title">Titre Lorem ipsum</h4>
+              <p class="hero-unit__text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus dolorum, iusto nulla perferendis nesciunt ex neque. Laudantium, sequi reprehenderit dolores distinctio. Ducimus odio porro magnam molestias minima unde perspiciatis, commodi.</span><span>Ex repudiandae, velit commodi at inventore magni obcaecati distinctio enim labore itaque minima voluptates vel, voluptatum sequi quis aut quaerat quidem quod id odit consequuntur. Molestias magni perferendis, ipsam eius!</span></p>
+            </div>
+          </div>
+          <div class="clearfix">
+            <div class="span-sm-6">
+              <h4 class="hero-unit__title">Titre Lorem ipsum</h4>
+              <p class="hero-unit__text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus dolorum, iusto nulla perferendis nesciunt ex neque. Laudantium, sequi reprehenderit dolores distinctio. Ducimus odio porro magnam molestias minima unde perspiciatis, commodi.</span><span>Ex repudiandae, velit commodi at inventore magni obcaecati distinctio enim labore itaque minima voluptates vel, voluptatum sequi quis aut quaerat quidem quod id odit consequuntur. Molestias magni perferendis, ipsam eius!</span></p>
+            </div>
+            <div class="span-sm-6">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=" data-size="auto" data-srcset="http://placehold.it/768x400 768w, http://placehold.it/991x400 991w" alt="" class="lazyload">
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Footer -->
-      <footer class="page-footer">
-        <div class="grid-row useful-links content">
+      <footer class="page-footer" role="contentinfo">
+        <div class="grid-row useful-links content-wrapper">
           <div class="span-xs-6 span-sm-3 useful-links__item">
             <a href="#" class="useful-links__item--icon">
               <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-link" /></svg>
@@ -111,13 +189,8 @@
         </div>
         <p class="cp">Tous droits réservés &copy;2015</p>
       </footer>
-    </main>
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+    </main>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

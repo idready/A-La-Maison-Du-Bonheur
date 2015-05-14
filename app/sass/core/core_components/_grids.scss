@@ -47,9 +47,8 @@
 	// @TODO: optimize the code below in a loop
 // }
 
-@media (min-width: rem($bp-xs-screen)) {
-    @include calc-grid-column (xs, $grid-columns);
-}
+
+@include calc-grid-column (xs, $grid-columns);
 
 @media (min-width: rem($bp-sm-screen)) {
     @include calc-grid-column (sm, $grid-columns);
