@@ -5,3 +5,171 @@
 
 /* Specific rule for a page
  * ==================================== */
+
+.map-address {
+
+  background: $secondary-color;
+  min-height: rem(400px);
+  transition: $default-transition;
+
+  // gmaps
+  #map-info {
+    font-family: $pt-sans-regular;
+  }
+  #map-info-title {
+    font-size: rem(22px);
+  }
+  #map-info-content {
+  }
+
+  // Responsiveness
+  @include mq('sm') {
+
+    min-height: rem(550px);
+  }
+
+  @include mq('md') {
+
+    min-height: rem(700px);
+  }
+
+}
+
+.contact-form {
+
+  margin-bottom: rem(80px);
+
+  .title {
+    font-size: rem(45px);
+    margin-bottom: 0;
+
+    +.text {
+      margin-bottom: rem(30px);
+    }
+  }
+
+  form {
+    @include clearfix;
+  }
+
+  //form fields container
+  .form-block {
+
+    padding: 0;
+    transition: $default-transition;
+
+    //common
+    input[type="text"],
+    input[type="password"],
+    textarea {
+
+      background: $secondary-color;
+      border: rem(1px) solid $secondary-color;
+      color: $primary-color;
+      padding: rem(10px) rem(20px);
+      transition: color $animation-duration $animation-function;
+      width: 100%;
+
+      &:focus {
+        color: $white;
+      }
+
+    }
+
+    input[type="text"],
+    input[type="submit"],
+    input[type="password"],
+    textarea {
+      margin: rem(10px) 0;
+    }
+
+    // submit button
+    .send-mail {
+      margin-top: rem(10px);
+      padding-left: rem(40px);
+      padding-right: rem(40px);
+    }
+  }
+
+  // useful infos
+  .contact-form__infos {}
+
+  .contact-form__infos-item {
+
+    @include clearfix;
+
+    .picto {
+      color: $primary-color;
+      display: block;
+      float: left;
+      font-family: $pt-sans-bold;
+      margin-bottom: rem(20px);
+    }
+
+    .icon {
+      float: left;
+      fill: $secondary-color;
+      height: rem(30px);
+      margin-right: rem(20px);
+      position: relative;
+      top: -0.1rem;
+      vertical-align: middle;
+      width: rem(30px);
+    }
+
+  }
+
+  // Responsiveness
+  @include mq(400px) {
+
+    .contact-form__infos-item {
+
+      .icon {
+        float: none;
+      }
+
+    }
+  }
+
+  @include mq(550px) {
+
+    .form-block {
+
+      //common
+      input[type="text"],
+      input[type="password"] {
+
+        float: left;
+        width: 48%;
+
+        &:last-child {
+          float: right;
+        }
+        &.boot-proof {float: none;} // no need to change its position
+
+      }
+
+    }
+  }
+
+  @include mq('sm') {
+
+    .title {
+      font-size: rem(60px);
+
+      +.text {
+        margin-bottom: rem(30px);
+      }
+    }
+
+    .contact-form__infos-item {
+
+      .icon {
+        height: rem(45px);
+        width: rem(45px);
+      }
+    }
+
+  }
+
+}

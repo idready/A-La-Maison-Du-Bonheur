@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nos plus</title>
+    <title>Contact</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -32,10 +32,12 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/home.css -->
-    <link rel="stylesheet" href="styles/our-plus.css">
+    <link rel="stylesheet" href="styles/contact.css">
     <!-- endbuild -->
     <!-- Modernizr -->
     <script src="scripts/vendor/modernizr.custom.v2.8.3.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuYbh-PR1SPx_JxsjpsVFBoOsLtW2KlOU">
+    </script>
 
     <!-- endbuild -->
   </head>
@@ -56,9 +58,9 @@
             <ul class="nav-list">
               <li class="nav-list__link"><a href="/index.html">Accueil</a></li>
               <li class="nav-list__link"><a href="#">Nos chambres</a></li>
-              <li class="nav-list__link current">Nos Plus</li>
+              <li class="nav-list__link"><a href="nos-plus.html">Nos Plus</a></li>
               <li class="nav-list__link"><a href="#">A découvrir</a></li>
-              <li class="nav-list__link"><a href="contact.html">Contact</a></li>
+              <li class="nav-list__link current">Contact</li>
             </ul>
           </nav>
         </div>
@@ -66,93 +68,66 @@
 
       <!-- Content -->
       <section>
-        <div class="container our-plus">
+        <div class="container">
+          <!-- Map with location  -->
+          <div class="map-address" id="map-address"></div>
+          <!-- Contact form -->
+          <div class="content-wrapper">
 
-          <div class="our-plus__features">
-            <div class="content-wrapper clearfix">
-              <h1 class="our-plus__title">Avec nos chambres, vous pourrez</h1>
-              <p>A la maison du bonheur, propose deux chambres d’hôtes de charme, dans un cadre aussi bien familial qu’intimiste.</p>
-              <p>Vous vivrez un petit moment de calme et de tranquillité.</p>
-              <p>Nous mettons à votre disposition des services complémentaires gratuitement.</p>
+            <div class="contact-form">
 
-              <div class="grid-row span-xs-12 span-md-6">
-                <!-- Room feature -->
-                <div class="our-plus__feature span-xs-6 span-sm-6">
+              <h1 class="title">Nous contacter</h1>
+              <p class="text">En quelques clics, organisez  et réservez votre séjour à la maison du bonheur.</p>
+              <!-- Useful infos -->
+              <div class="contact-form__infos">
 
-                    <div>
-                      <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-internet" /></svg>
-                      <h3 class="title">Internet<sup>*</sup></h3>
-                      <ul class="features-list">
-                        <li>Multimédia</li>
-                        <li>Communication</li>
-                        <li>Divertissement</li>
-                        <li>Multimédia</li>
-                        <li><small><strong>(Avec une connexion ADSL)</strong></small><li>
-                      </ul>
-                    </div>
+                <div class="contact-form__infos-item address">
+                  <span class="picto">
+                    <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-map-point" /></svg>
+                    5 Impasse des Bas de Soie, 49630 Mazé
+                  </span>
                 </div>
-                <!-- Room feature -->
-                <div class="our-plus__feature span-xs-6 span-sm-6">
-
-                    <div>
-                      <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-wifi" /></svg>
-                      <h3 class="title">Wifi</h3>
-                      <ul class="features-list">
-                        <li>Possibilité d'utiliser le wifi<br> à domicile</li>
-                      </ul>
-                    </div>
+                <div class="contact-form__infos-item phone">
+                  <span class="picto">
+                    <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-phone" /></svg>
+                    02 43 50 50 90
+                  </span>
+                </div>
+                <div class="contact-form__infos-item email">
+                  <span class="picto">
+                    <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-internet" /></svg>
+                    maisondubonheur@gmail.com
+                  </span>
                 </div>
               </div>
-              <div class="grid-row span-xs-12 span-md-6">
-                <!-- Room feature -->
-                <div class="our-plus__feature span-xs-6">
-
-                    <div>
-                      <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-books" /></svg>
-                      <h3 class="title">Lectures</h3>
-                      <ul class="features-list">
-                        <li>Livres à disposition</li>
-                      </ul>
-                    </div>
-                </div>
-                <!-- Room feature -->
-                <div class="our-plus__feature span-xs-6">
-
-                    <div>
-                      <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-baby-bed" /></svg>
-                      <h3 class="title">Lit parapluie</h3>
-                      <ul class="features-list">
-                        <li>Lit parapluie disponible</li>
-                      </ul>
-                    </div>
-                </div>
+              <!-- Form fileds -->
+              <div class="contact-form__fields">
+                <form action="" method="post" id="contact-form">
+                  <div class="span-xs-12 form-block">
+                    <input type="text" placeholder="Nom*" name="user-name" id="user-name">
+                    <input type="text" placeholder="Prénom" name="user-first-name" id="user-first-name">
+                  </div>
+                  <div class="span-xs-12 form-block">
+                    <input type="text" placeholder="Email*" name="user-email" id="user-email">
+                    <input type="text" placeholder="Sujet" name="user-email-subject" id="user-email-subject">
+                  </div>
+                  <div class="span-xs-12 form-block">
+                    <textarea placeholder="Votre message..." name="user-text-message" id="user-text-message" cols="30" rows="10" class="user-text-message"></textarea>
+                  </div>
+                  <div class="span-xs-6 form-block">
+                    <input type="text" placeholder="1 + 1 = ?" name="boot-proof" class="boot-proof" id="boot-proof">
+                  </div>
+                  <div class="span-xs-12 form-block">
+                    <button class="button large send-mail" type="submit">
+                      Envoyer
+                    </button>
+                  </div>
+                </form>
               </div>
+
             </div>
+
           </div>
-
-          <div class="our-plus__bonuses">
-            <div class="content-wrapper">
-              <div class="grid-row">
-                <!-- Room feature -->
-                <div class="our-plus__bonus span-xs-12 span-sm-6">
-
-                    <div>
-                      <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-rando" /></svg>
-                      <h3 class="title">A Mazé, un sentier de randonnées<br>de <strong>6KM longe l''Authion</strong> et<br> le <strong>Vieil Authion</strong></h3>
-                    </div>
-                </div>
-                <!-- Room feature -->
-                <div class="our-plus__bonus span-xs-12 span-sm-6">
-
-                    <div>
-                      <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-bike" /></svg>
-                      <h3 class="title"><strong>3 vélos mixtes</strong> à disposition:<br>Une piste cyclable sécurisée qui <br>relie Mazé à la commune<br>voisine de Beaufort en Vallée</h3>
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -200,7 +175,7 @@
     </script>
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
-    <script src="scripts/our-plus.js"></script>
+    <script src="scripts/contact.js"></script>
     <!-- endbuild -->
 </body>
 </html>

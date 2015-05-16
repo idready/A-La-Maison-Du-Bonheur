@@ -149,13 +149,20 @@ module.exports = function (grunt) {
                 '<%= config.app %>/scripts/main.js'],
           dest: '<%= config.app %>/scripts/our-plus_dev.js',
         },
+        contact: {
+          src: ['bower_components/svg4everybody/svg4everybody.min.js',
+                'bower_components/jquery/dist/jquery.js',
+                '<%= config.app %>/scripts/app-contact.js',
+                '<%= config.app %>/scripts/main.js'],
+          dest: '<%= config.app %>/scripts/contact_dev.js',
+        },
         dist: {}
     },
 
     // minify all js files
     uglify: {
       options: {
-        // screwIE8: true,
+        screwIE8: true,
         // separator: ';',
         stripBanners: true,
         banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
@@ -168,6 +175,10 @@ module.exports = function (grunt) {
       ourPlus: {
         src: ['<%= config.app %>/scripts/our-plus_dev.js'],
         dest: '<%= config.app %>/scripts/our-plus.js',
+      },
+      contact: {
+        src: ['<%= config.app %>/scripts/contact_dev.js'],
+        dest: '<%= config.app %>/scripts/contact.js',
       },
       dist: {}
     },

@@ -4,26 +4,27 @@
  * =========================================== */
 
 /* Basic button's styles
- * 
+ *
  * 1. From bootstrap's components: foundation.zurb.com
  * 2. From Foundation framework; remove old behavior for old browsers
  * @TODO: Add button-group and check border-radius
  * ==================================== */
 
  %button {
-	
+
 	background-image: none; // [1] Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
  	border: rem(1px) solid transparent;
  	cursor: pointer;
  	display: inline-block;
  	touch-action: manipulation;
  	margin-bottom: 0;
+  padding: rem($padding-large-vertical) rem($padding-large-horizontal); 
  	text-align: center;
  	vertical-align: middle;
  	white-space: nowrap;
  	-webkit-appearance: none; // [2]
   	-webkit-font-smoothing: antialiased; // [2]
- 	
+
 }
 
 
@@ -34,8 +35,8 @@
   @if $expand {
     @include button-expand;
   }
-  
-  // @TODO: understand and add afterwards 
+
+  // @TODO: understand and add afterwards
   // @if using(iconic) {
   //   .iconic {
   //     width: 1em;
@@ -147,7 +148,7 @@
   // }
 }
 
-// Include only if the component is wanted 
+// Include only if the component is wanted
 @include exports(button) {
   .button {
     @include button;
@@ -177,8 +178,8 @@
 
     &.disabled { @include button-disabled; }
   }
-	
-  // @TODO: Understand and add 
+
+  // @TODO: Understand and add
   // @if $button-tag-selector {
   //   button {
   //     @extend .button;
