@@ -11,36 +11,31 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
   document.querySelector('head').appendChild(msViewportStyle);
 }
 
-// Lazysizes config && picture element pollyfill
+document.addEventListener('DOMContentLoaded', function() {
 
-window.lazySizesConfig = window.lazySizesConfig || {};
+  // handle animation
+  document.addEventListener('animationend', function(e) {
 
-window.lazySizesConfig = {
-  autosizesClass: 'lazyautosizes',
-  ObjecterrorClass: 'lazyerror',
-  expFactor: 4, // default 2
-  expand: 0, // default 300
-  init: true,
-  lazyClass: 'lazyload',
-  loadMode: 1, //default 3
-  loadedClass: 'lazyloaded',
-  loadingClass: 'lazyloading',
-  minSize: 50,
-  preloadClass: 'lazypreload',
-  sizesAttr: 'data-sizes',
-  srcAttr: 'data-src',
-  srcsetAttr: 'data-srcset'
-};
+    var animation = e;
+    animation.target.classList.remove('animated');
+  });
+  document.addEventListener('webkitAnimationEnd', function(e) {
 
-jQuery(document).ready( function() {
-
-  // Handle animations by removing animated classes once animation is completed
-  jQuery(document).on('animationend, webkitAnimationEnd', function(e) {
-
-    // console.log(e);
-    var animation = (jQuery(e.target).hasClass('animated')) ? jQuery(e.target).removeClass('animated') : '';
-    console.log(animation);
-
+    var animation = e;
+    animation.target.classList.remove('animated');
   });
 
 });
+
+// jQuery(document).ready( function() {
+//
+//   // Handle animations by removing animated classes once animation is completed
+//   jQuery(document).on('animationend, webkitAnimationEnd', function(e) {
+//
+//     console.log(e);
+//     var animation = (jQuery(e.target).hasClass('animated')) ? jQuery(e.target).removeClass('animated') : '';
+//     console.log(animation);
+//
+//   });
+//
+// });

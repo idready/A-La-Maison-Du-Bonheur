@@ -27,12 +27,8 @@
     -->
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/home.css -->
     <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="bower_components/swiper/dist/css/swiper.min.css">
     <!-- endbuild -->
     <!-- Modernizr -->
     <script src="scripts/vendor/modernizr.custom.v2.8.3.js"></script>
@@ -57,8 +53,8 @@
               <li class="nav-list__link current">Accueil</li>
               <li class="nav-list__link"><a href="#">Nos chambres</a></li>
               <li class="nav-list__link"><a href="/nos-plus.html">Nos Plus</a></li>
-              <li class="nav-list__link"><a href="#">A découvrir</a></li>
-              <li class="nav-list__link"><a href="contact.html">Contact</a></li>
+              <li class="nav-list__link"><a href="/discover.html">A découvrir</a></li>
+              <li class="nav-list__link"><a href="/contact.html">Contact</a></li>
             </ul>
           </nav>
         </div>
@@ -66,7 +62,67 @@
 
       <!-- Content -->
       <section>
-        <div class="gallerie-slides container">
+        <div class="swiper-container container">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <div class="">
+                    <picture>
+                        <!--[if IE 9]><video style="display: none"><![endif]-->
+                        <source data-srcset="http://placehold.it/2500x700/cda003/222222/" media="(min-width: 991px)">
+                        <source data-srcset="http://placehold.it/900x500/cda003/222222/" media="(min-width: 768px)">
+                        <source data-srcset="http://placehold.it/768x500/cda003/222222/">
+                        <!--[if IE 9]></video><![endif]-->
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" class="article__illustr lazyload" alt="">
+                    </picture>
+                    <noscript>
+                        <img src="http://placehold.it/768x500/cda003/222222/" class="article__illustr lazyload no-js" alt="">
+                    </noscript>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="">
+                    <picture>
+                        <!--[if IE 9]><video style="display: none"><![endif]-->
+                        <source data-srcset="http://placehold.it/2500x700/369ff0/ffffff/" media="(min-width: 991px)">
+                        <source data-srcset="http://placehold.it/900x500/369ff0/ffffff/" media="(min-width: 768px)">
+                        <source data-srcset="http://placehold.it/768x500/369ff0/ffffff/">
+                        <!--[if IE 9]></video><![endif]-->
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" class="article__illustr lazyload" alt="">
+                    </picture>
+                    <noscript>
+                        <img src="http://placehold.it/768x500/369ff0/ffffff/" class="article__illustr lazyload no-js" alt="">
+                    </noscript>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="">
+                    <picture>
+                        <!--[if IE 9]><video style="display: none"><![endif]-->
+                        <source data-srcset="http://placehold.it/2500x700/aaaaaa/2c2d2f/" media="(min-width: 991px)">
+                        <source data-srcset="http://placehold.it/900x500/aaaaaa/2c2d2f/" media="(min-width: 768px)">
+                        <source data-srcset="http://placehold.it/768x500/aaaaaa/2c2d2f/">
+                        <!--[if IE 9]></video><![endif]-->
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" class="article__illustr lazyload" alt="">
+                    </picture>
+                    <noscript>
+                        <img src="http://placehold.it/768x500/aaaaaa/2c2d2f/" class="article__illustr lazyload no-js" alt="">
+                    </noscript>
+                </div>
+              </div>
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
+      </div>
+        <div class="gallerie-slides container hidden">
           <div class="gallerie-slides__item js-slides">
             <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=" data-srcset="http://placehold.it/768x300 768w, http://placehold.it/991x500 991w, http://placehold.it/2000x700 1200w" data-sizes="auto" alt="" class="gallerie-slides__img lazyload">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=" data-srcset="http://placehold.it/768x300 768w, http://placehold.it/991x500 991w, http://placehold.it/2000x700 1200w" data-sizes="auto" alt="" class="gallerie-slides__img lazyload">
@@ -82,14 +138,14 @@
             <div class="gallerie-slides__img">
                 <picture>
                     <!--[if IE 9]><video style="display: none"><![endif]-->
-                    <source data-srcset="http://placehold.it/2500x700" media="(min-width: 991px)">
-                    <source data-srcset="http://placehold.it/900x500" media="(min-width: 768px)">
-                    <source data-srcset="http://placehold.it/600x300">
+                    <source data-srcset="http://placehold.it/2500x700/" media="(min-width: 991px)">
+                    <source data-srcset="http://placehold.it/900x500/" media="(min-width: 768px)">
+                    <source data-srcset="http://placehold.it/768x500/">
                     <!--[if IE 9]></video><![endif]-->
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" class="article__illustr lazyload" alt="">
                 </picture>
                 <noscript>
-                    <img src="http://placehold.it/768x300" class="article__illustr lazyload no-js" alt="">
+                    <img src="http://placehold.it/768x500/" class="article__illustr lazyload no-js" alt="">
                 </noscript>
             </div>
             <div class="gallerie-slides__img">
@@ -97,12 +153,12 @@
                     <!--[if IE 9]><video style="display: none"><![endif]-->
                     <source data-srcset="http://placehold.it/2500x700" media="(min-width: 991px)">
                     <source data-srcset="http://placehold.it/900x500" media="(min-width: 768px)">
-                    <source data-srcset="http://placehold.it/600x300">
+                    <source data-srcset="http://placehold.it/768x500">
                     <!--[if IE 9]></video><![endif]-->
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" class="article__illustr lazyload" alt="">
                 </picture>
                 <noscript>
-                    <img src="http://placehold.it/768x300" class="article__illustr lazyload no-js" alt="">
+                    <img src="http://placehold.it/768x500" class="article__illustr lazyload no-js" alt="">
                 </noscript>
             </div>
             <div class="gallerie-slides__img">
@@ -110,22 +166,31 @@
                     <!--[if IE 9]><video style="display: none"><![endif]-->
                     <source data-srcset="http://placehold.it/2500x700" media="(min-width: 991px)">
                     <source data-srcset="http://placehold.it/900x500" media="(min-width: 768px)">
-                    <source data-srcset="http://placehold.it/600x300">
+                    <source data-srcset="http://placehold.it/768x500">
                     <!--[if IE 9]></video><![endif]-->
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" class="article__illustr lazyload" alt="">
                 </picture>
                 <noscript>
-                    <img src="http://placehold.it/768x300" class="article__illustr lazyload no-js" alt="">
+                    <img src="http://placehold.it/768x500" class="article__illustr lazyload no-js" alt="">
                 </noscript>
             </div>
+            <!--  -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
           </div>
           <div class="gallerie-slides__controls content">
-            <p class="prev-slide" id="prev-slide">
+            <a class="prev-slide" id="prev-slide">
               <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-arrow-prev" /></svg>
-            </p>
-            <p class="next-slide" id="next-slide">
+            </a>
+            <a class="next-slide" id="next-slide">
               <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-arrow-next" /></svg>
-            </p>
+            </a>
           </div>
         </div>
         <div class="page-content content-wrapper">

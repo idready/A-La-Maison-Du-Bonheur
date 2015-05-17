@@ -1,0 +1,215 @@
+
+/* ===========================================
+ * Specific rules a page
+ * =========================================== */
+
+/* Specific rule for a page
+ * ==================================== */
+
+.wrapper {
+  position: relative;
+}
+
+// content head
+.discover__head {
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-height: rem(560px);
+  position: relative;
+
+  @include parent-element-vertical-align;
+
+  .discover__head--text {
+
+    @include vertical-align;
+
+    color: $white;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+
+    .title {
+      font-size: rem(45px);
+      margin-bottom: rem(45px);
+    }
+    .text {}
+  }
+
+  &::before {
+
+    background-color: rgba(205, 160, 3, 0.5);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+//places
+.discover__places {
+
+  .discover__places--title {
+    font-size: rem(24px);
+    margin-bottom: rem(40px);
+    margin-top: rem(20px);
+  }
+  //common
+  .location-illustr,
+  .location-content,
+  .discover__places--location {
+    padding: 0; // please margin with the head
+  }
+
+  .discover__places--location {
+
+    margin-bottom: rem(60px);
+    padding-bottom: rem(50px);
+    position: relative;
+    transition: $default-transition;
+
+    // reversed
+    &.reversed {
+      .location-illustr { float: none; }
+    }
+
+    // fancy
+    &::before {
+
+      background: $secondary-color;
+      bottom: 0;
+      content: '';
+      height: rem(3px);
+      left: 35%;
+      position: absolute;
+      width: 30%;
+    }
+  }
+
+  .location-illustr,
+  .location-content {
+    float: none;
+  }
+
+  .discover__places--location {
+    text-align: center;
+  }
+
+  .location-illustr {
+
+    border: rem(1px) solid $brand-yellow;
+    height: auto;
+    margin-bottom: rem(40px);
+    max-width: rem(300px);
+  }
+
+  .location-content {
+
+    text-align: left;
+
+    .location-name {
+
+      font-family: $pt-sans-bold;
+      font-size: rem(30px);
+      margin-bottom: rem(40px);
+    }
+    .location-descrp,
+    .location-address,
+    .location-link {
+      font-size: rem(20px);
+      transition: $default-transition;
+    }
+    .location-address  {
+
+      margin: rem(20px) 0;
+      .item--icon {
+        display: block;
+      }
+      .item--icon ~ .item--icon {
+        margin-top: rem(20px);
+      }
+
+      .icon {
+        display: inline-block;
+        fill: $secondary-color;
+        height: rem(40px);
+        // margin-right: 0.625rem;
+        position: relative;
+        top: -0.1rem;
+        vertical-align: middle;
+        width: rem(40px);
+      }
+    }
+    .location-link {
+
+      color: $secondary-color;
+      float: right;
+
+      &:hover {
+        color: lighten($secondary-color, 20%);
+      }
+    }
+
+  }
+
+}
+
+// Responsiveness
+@include mq('sm') {
+
+  .discover__head {
+
+    .discover__head--text {
+
+      .title {
+        font-size: rem(60px);
+        margin-bottom: rem(60px);
+      }
+      .text {font-size: rem(22px);}
+
+    }
+  }
+
+  .discover__places {
+
+    text-align: left;
+
+    .location-illustr,
+    .location-content {
+      float: left;
+    }
+
+    .discover__places--location {
+
+      padding-bottom: rem(30px);
+      text-align: left;
+
+      &.reversed {
+
+        .location-illustr {float: right;}
+        .location-content {padding-left: 0;}
+      }
+
+    }
+    .location-illustr {
+
+      display: inline-block;
+      margin-bottom: 0;
+    }
+
+    .location-content {
+
+      padding-left: rem(50px);
+
+      .location-descrp,
+      .location-address,
+      .location-link {
+        font-size: rem(24px);
+      }
+
+    }
+  }
+
+
+}

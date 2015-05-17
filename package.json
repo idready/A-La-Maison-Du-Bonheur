@@ -28,7 +28,6 @@
     "jshint-stylish": "^0.4.0",
     "lazysizes": "^1.1.0",
     "load-grunt-tasks": "^0.4.0",
-    "svg4everybody": "0.0.2",
     "time-grunt": "^0.4.0"
   },
   "engines": {
