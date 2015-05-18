@@ -25,5 +25,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Lazyload all images and avoid blank images when windows is not fully loaded
   window.lazySizes.init();
-  
+
+  // swiper
+  var mySwiper = new Swiper (document.querySelector('.swiper-container'), {
+    effect: 'fade',
+    slidesPerView: 1,
+    paginationClickable: true,
+    spaceBetween: 0,
+    // autoplay
+    autoplay: 7000,
+    autoplayDisableOnInteraction: false,
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true, //screw IE9
+
+    simulateTouch: false, // no need to add swipe event
+    // If we need pagination
+    // pagination: '.swiper-pagination',
+
+    // Navigation arrows
+    // nextButton: '.swiper-button-next',
+    // prevButton: '.swiper-button-prev',
+
+    // And if we need scrollbar
+    wrapperClass: 'swiper-wrapper',
+  });
+
 });

@@ -19,24 +19,6 @@
   min-height: rem(560px);
   position: relative;
 
-  @include parent-element-vertical-align;
-
-  .discover__head--text {
-
-    @include vertical-align;
-
-    color: $white;
-    text-align: center;
-    position: absolute;
-    width: 100%;
-
-    .title {
-      font-size: rem(45px);
-      margin-bottom: rem(45px);
-    }
-    .text {}
-  }
-
   &::before {
 
     background-color: rgba(205, 160, 3, 0.5);
@@ -45,6 +27,32 @@
     position: absolute;
     width: 100%;
   }
+}
+
+.discover--illustr {
+
+  @include parent-element-vertical-align;
+
+  .discover__head--text {
+
+    @include vertical-align;
+
+    color: $white;
+    left: 0;
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+
+    .title {
+      font-size: rem(45px);
+      margin-bottom: rem(45px);
+    }
+    .text {}
+  }
+
 }
 
 //places
@@ -68,6 +76,7 @@
     padding-bottom: rem(50px);
     position: relative;
     transition: $default-transition;
+    text-align: center;
 
     // reversed
     &.reversed {
@@ -85,6 +94,16 @@
       position: absolute;
       width: 30%;
     }
+    // no fancy for the last element
+    &:last-child {
+
+      margin-bottom: rem(80px);
+
+      &::before {
+        display: none;
+      }
+    }
+
   }
 
   .location-illustr,
@@ -92,16 +111,11 @@
     float: none;
   }
 
-  .discover__places--location {
-    text-align: center;
-  }
-
   .location-illustr {
 
     border: rem(1px) solid $brand-yellow;
     height: auto;
     margin-bottom: rem(40px);
-    max-width: rem(300px);
   }
 
   .location-content {
@@ -134,7 +148,7 @@
         display: inline-block;
         fill: $secondary-color;
         height: rem(40px);
-        // margin-right: 0.625rem;
+        margin-right: rem(20px);
         position: relative;
         top: -0.1rem;
         vertical-align: middle;
@@ -156,10 +170,23 @@
 }
 
 // Responsiveness
+@include mq('xs') {
+
+  .discover__places {
+
+    // avoid too big image since when won't always dimensions
+    .location-illustr {
+      max-width: rem(300px);
+    }
+  }
+
+}
+
 @include mq('sm') {
 
-  .discover__head {
+  .discover--illustr {
 
+    // scale text
     .discover__head--text {
 
       .title {
@@ -208,6 +235,10 @@
         font-size: rem(24px);
       }
 
+      .location-address {
+
+        .icon {margin-right: rem(30px);}
+      }
     }
   }
 
