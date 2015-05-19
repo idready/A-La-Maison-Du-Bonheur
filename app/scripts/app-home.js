@@ -88,4 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // scrollbar: '.swiper-scrollbar',
   });
 
+  console.log(mySwiper);
+
 });

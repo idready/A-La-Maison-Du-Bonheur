@@ -1,0 +1,154 @@
+
+/* ===========================================
+ * Contact page
+ * =========================================== */
+
+/* Specific rule for a page
+ * ==================================== */
+
+.our-rooms__types {
+
+  background: $secondary-color;
+  color: $white;
+  padding-bottom: rem(20px);
+  padding-top: rem(40px);
+
+  .our-rooms__types--title {
+    font-size: rem(25px);
+    margin-bottom: rem(20px);
+    text-decoration: underline;
+  }
+
+  .our-rooms__types--actions {
+
+    margin: rem(20px) 0;
+    text-align: center;
+
+    // modified default button
+    .show-rooms {
+      background: transparent;
+      border: rem(1px) solid $white;
+      border-radius: rem(5px);
+      color: $white;
+
+      &:hover {
+
+        background: $white;
+        border-color: $white;
+        color: $secondary-color;
+      }
+    }
+
+    // different types
+    .show-rooms--type {
+
+      background: $brand-yellow;
+      border-radius: 50%;
+      border: rem(2px) solid $brand-yellow;
+      display: inline-block; // allow other elements than native block elements here
+      color: $white;
+      height: rem(100px);
+      margin-right: rem(80px);
+      line-height: 0; // avoid misculation for the vertical-align
+      text-align: center;
+      transition: $default-transition;
+      width: rem(100px);
+
+      @include parent-element-vertical-align;
+
+      .text {
+
+        font-size: rem(80px);
+        @include vertical-align;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.swiper-button-disabled, // used this js generated class since it's already achieving the same goal
+      &:hover {
+        background: $primary-color;
+        color: lighten($primary-color, 20%);
+      }
+      
+    }
+
+  }
+
+  // Responsiveness
+  @include mq('sm') {
+
+    .our-rooms__types--title {
+      font-size: rem(30px);
+    }
+
+    .our-rooms__types--actions {
+
+      .show-rooms--type {
+
+        height: rem(160px);
+        margin-right: rem(160px);
+        width: rem(160px);
+
+        .text {
+          font-size: rem(140px);
+        }
+      }
+
+    }
+
+  }
+
+}
+
+.our-rooms__features {
+
+  margin-bottom: rem(40px);
+  margin-top: rem(40px);
+  text-align: center;
+
+  .our-rooms__features--title {
+    font-size: rem(30px);
+    margin-bottom: rem(60px);
+    text-decoration: underline;
+    transition: $default-transition;
+  }
+
+  .our-rooms__features--item {
+
+    margin-bottom: rem(60px);
+
+    .icon {
+      fill: $primary-color;
+      height: rem(100px);
+    }
+    .feature-descrip {
+      font-size: rem(24px);
+    }
+
+  }
+
+  // Responsiveness
+  @include mq('sm') {
+
+    .our-rooms__features--title {
+
+    }
+
+    .our-rooms__features--item {
+
+      margin-bottom: rem(20px);
+      min-height: rem(200px);
+
+      .icon {
+        height: rem(60px);
+      }
+      .feature-descrip {
+        font-size: rem(18px);
+      }
+    }
+
+  }
+
+}

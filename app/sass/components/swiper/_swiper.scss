@@ -1,0 +1,47 @@
+
+.swiper-container {
+
+  // common
+  .swiper-button-prev,
+  .swiper-button-next,
+  .swiper-pagination-bullet,
+  .swiper-pagination-bullet-active {
+    transition: $default-transition;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+
+    background-color: $white;
+    border-radius: 50%;
+    cursor: pointer;
+    fill: $brand-yellow;
+    height: rem(65px);
+    transition: $default-transition;
+    width: rem(65px);
+  }
+
+  .swiper-button-prev {
+    left: 5%;
+  }
+  .swiper-button-next {
+    right: 5%;
+  }
+
+  .swiper-pagination-bullet {
+
+    background: $white;
+    height: rem(15px);
+    margin-right: rem(5px);
+    opacity: 1;
+    width: rem(15px);
+
+    &:last-child {
+      margin-right: 0;
+    }
+    &.swiper-pagination-bullet-active {
+      background: $secondary-color;
+    }
+  }
+
+}

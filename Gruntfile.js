@@ -137,7 +137,7 @@ module.exports = function (grunt) {
                 'bower_components/lazysizes/plugins/bgset/ls.bgset.min.js',
                 'bower_components/lazysizes/plugins/optimumx/ls.optimumx.min.js',
                 'bower_components/lazysizes/plugins/respimg/ls.respimg.min.js',
-                // 'bower_components/jquery/dist/jquery.js',
+                'bower_components/jquery/dist/jquery.js',
                 'bower_components/swiper/dist/js/swiper.min.js',
                 '<%= config.app %>/scripts/app-home.js',
                 '<%= config.app %>/scripts/main.js'],
@@ -170,6 +170,19 @@ module.exports = function (grunt) {
                 '<%= config.app %>/scripts/main.js'],
           dest: '<%= config.app %>/scripts/discover_dev.js',
         },
+        ourRooms: {
+          src: ['bower_components/svg4everybody/svg4everybody.min.js',
+                'bower_components/lazysizes/plugins/unveilhooks/ls.unveilhooks.min.js',
+                'bower_components/lazysizes/lazysizes.min.js',
+                'bower_components/lazysizes/plugins/bgset/ls.bgset.min.js',
+                'bower_components/lazysizes/plugins/optimumx/ls.optimumx.min.js',
+                'bower_components/lazysizes/plugins/respimg/ls.respimg.min.js',
+                'bower_components/swiper/dist/js/swiper.min.js',
+                // 'bower_components/jquery/dist/jquery.js',
+                '<%= config.app %>/scripts/app-rooms.js',
+                '<%= config.app %>/scripts/main.js'],
+          dest: '<%= config.app %>/scripts/our-rooms_dev.js',
+        },
         dist: {}
     },
 
@@ -197,6 +210,10 @@ module.exports = function (grunt) {
       discover: {
         src: ['<%= config.app %>/scripts/discover_dev.js'],
         dest: '<%= config.app %>/scripts/discover.js',
+      },
+      ourRooms: {
+        src: ['<%= config.app %>/scripts/our-rooms_dev.js'],
+        dest: '<%= config.app %>/scripts/our-rooms.js',
       },
       dist: {}
     },

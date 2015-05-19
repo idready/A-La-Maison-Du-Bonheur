@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+
 // jQuery(document).ready( function() {
 //
 //   // Handle animations by removing animated classes once animation is completed
