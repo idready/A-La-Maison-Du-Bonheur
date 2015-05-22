@@ -48,8 +48,9 @@
       display: inline-block; // allow other elements than native block elements here
       color: $white;
       height: rem(100px);
-      margin-right: rem(80px);
       line-height: 0; // avoid misculation for the vertical-align
+      margin-right: rem(80px);
+      position: relative;
       text-align: center;
       transition: $default-transition;
       width: rem(100px);
@@ -58,8 +59,12 @@
 
       .text {
 
-        font-size: rem(80px);
         @include vertical-align;
+
+        font-size: rem(80px);
+        left: 0;
+        position: absolute;
+        right: 0;
       }
 
       &:last-child {
@@ -71,7 +76,7 @@
         background: $primary-color;
         color: lighten($primary-color, 20%);
       }
-      
+
     }
 
   }
