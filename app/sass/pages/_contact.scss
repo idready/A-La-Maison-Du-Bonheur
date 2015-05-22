@@ -52,6 +52,34 @@
     @include clearfix;
   }
 
+  // errors container block
+  .fields-errors {
+
+    color: $secondary-color;
+    font-size: rem(20px);
+    margin: rem(20px) 0;
+    padding: 0;
+    transition: $default-transition;
+
+    ul {padding-left: rem(20px);}
+    .required {
+      animation-fill-mode: forwards;
+      color: $danger-color;
+      list-style-type: disc;
+      margin: rem(10px) 0 0;
+    }
+
+    .icon {
+      display: inline-block;
+      fill: $secondary-color;
+      height: rem(30px);
+      margin-right: rem(20px);
+      position: relative;
+      top: -0.1rem;
+      vertical-align: middle;
+      width: rem(30px);
+    }
+  }
   //form fields container
   .form-block {
 
@@ -60,23 +88,73 @@
 
     //common
     input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="number"],
     input[type="password"],
     textarea {
 
       background: $secondary-color;
+      background-position: 0 0;
       border: rem(1px) solid $secondary-color;
       color: $primary-color;
       padding: rem(10px) rem(20px);
-      transition: color $animation-duration $animation-function;
+      transition: background, border, color $animation-duration $animation-function;
       width: 100%;
 
       &:focus {
         color: $white;
       }
 
+      //validation
+      &:required,
+      &:valid,
+      &:invalid,
+      &.validated,
+      &.error {
+        border-color: $white;
+        color: $white;
+        background-size: rem(25px);
+        background-repeat: no-repeat;
+        background-position: 97% 50%;
+        padding-right: rem(40px);
+      }
+
+      &:required {
+        background-color: $secondary-color;
+      }
+      &:invalid,
+      &.error {
+        background-color: $danger-color;
+      }
+      &:valid,
+      &.validated {
+        background-color: $success-color;
+      }
+
+
+
+      //placeholder
+      @include placeholder-color($white);
+
+    }
+
+    input:valid,
+    input.validated,
+    textarea.validated {
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NDguOCIgaGVpZ2h0PSI0NDguOCIgdmlld0JveD0iMCAwIDQ0OC44IDQ0OC44Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTE0Mi44IDMyMy44NUwzNS43IDIxNi43NSAwIDI1Mi40NWwxNDIuOCAxNDIuOCAzMDYtMzA2LTM1LjctMzUuNyIvPjwvc3ZnPg==');
+    }
+
+    input.error,
+    input:invalid,
+    textarea.error {
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNTciIGhlaWdodD0iMzU3IiB2aWV3Qm94PSIwIDAgMzU3IDM1NyI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTM1NyAzNS43TDMyMS4zIDAgMTc4LjUgMTQyLjggMzUuNyAwIDAgMzUuN2wxNDIuOCAxNDIuOEwwIDMyMS4zIDM1LjcgMzU3bDE0Mi44LTE0Mi44TDMyMS4zIDM1N2wzNS43LTM1LjctMTQyLjgtMTQyLjgiLz48L3N2Zz4=');
     }
 
     input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="number"],
     input[type="submit"],
     input[type="password"],
     textarea {
@@ -137,6 +215,9 @@
 
       //common
       input[type="text"],
+      input[type="email"],
+      input[type="url"],
+      input[type="number"],
       input[type="password"] {
 
         float: left;

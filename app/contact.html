@@ -38,11 +38,10 @@
     <script src="scripts/vendor/modernizr.custom.v2.8.3.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuYbh-PR1SPx_JxsjpsVFBoOsLtW2KlOU">
     </script>
-
     <!-- endbuild -->
   </head>
   <body>
-    <!--[if lt IE 9]>
+    <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
@@ -102,20 +101,29 @@
               </div>
               <!-- Form fileds -->
               <div class="contact-form__fields">
-                <form action="" method="post" id="contact-form">
+                <form action="/" method="post" id="contact-form">
+                  <div class="fields-errors span-xs-12">
+                    <p><svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-notice" /></svg>Merci de remplir les champs obligatoires pour envoyer votre mail.</p>
+                    <!-- <ul>
+                      <li class="user-name-error required">Champ "Nom" requis*</li>
+                      <li class="user-email-error required">Champ "Email" requis*</li>
+                      <li class="user-text-message required">Champ "Message" requis</li>
+                      <li class="user-botProof-error required">Champ "Calcul" requis</li>
+                    </ul> -->
+                  </div>
                   <div class="span-xs-12 form-block">
-                    <input type="text" placeholder="Nom*" name="user-name" id="user-name">
+                    <input type="text" placeholder="Nom*" name="user-name" id="user-name" required>
                     <input type="text" placeholder="Prénom" name="user-first-name" id="user-first-name">
                   </div>
                   <div class="span-xs-12 form-block">
-                    <input type="text" placeholder="Email*" name="user-email" id="user-email">
+                    <input type="email" placeholder="Email*" name="user-email" id="user-email" required>
                     <input type="text" placeholder="Sujet" name="user-email-subject" id="user-email-subject">
                   </div>
                   <div class="span-xs-12 form-block">
-                    <textarea placeholder="Votre message..." name="user-text-message" id="user-text-message" cols="30" rows="10" class="user-text-message"></textarea>
+                    <textarea placeholder="Votre message..." name="user-text-message" id="user-text-message" cols="30" rows="10" class="user-text-message" required></textarea>
                   </div>
                   <div class="span-xs-6 form-block">
-                    <input type="text" placeholder="1 + 1 = ?" name="boot-proof" class="boot-proof" id="boot-proof">
+                    <input type="number" placeholder="1 + 1 = ?" name="boot-proof" class="boot-proof" id="boot-proof" required>
                   </div>
                   <div class="span-xs-12 form-block">
                     <button class="button large send-mail" type="submit">
