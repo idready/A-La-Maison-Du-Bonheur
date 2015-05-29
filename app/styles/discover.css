@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ===========================================
  * Here is a generic page and how basic import is done.
  * Import order matters due to some variables used on some components
@@ -749,6 +750,39 @@ body {
   height: 100%;
   transition: all 0.3s ease;
   width: 100%; }
+
+/* Print
+ * ==================================== */
+/* ===========================================
+ * Specific rules page's base
+ * =========================================== */
+/*
+  * source:
+  * [1] foundation.zurb.com
+  * [2] Twitter bootstrap
+  * [3] Inuit Css
+  * ==================================== */
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important; }
+  a,
+  a:visited {
+    text-decoration: underline; }
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+  /**
+       * Don’t show links that are fragment identifiers, or use the `javascript:`
+       * pseudo protocol.
+       */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: ""; } }
 
 /* Components
  * ==================================== */
@@ -3250,38 +3284,43 @@ body {
     cursor: default;
     pointer-events: none; }
 
-.swiper-container .swiper-button-prev,
-.swiper-container .swiper-button-next,
-.swiper-container .swiper-pagination-bullet,
-.swiper-container .swiper-pagination-bullet-active {
-  transition: all 0.3s ease; }
-
-.swiper-container .swiper-button-prev,
-.swiper-container .swiper-button-next {
-  background-color: #ffffff;
-  border-radius: 50%;
-  cursor: pointer;
-  fill: #cda003;
-  height: 4.0625rem;
-  transition: all 0.3s ease;
-  width: 4.0625rem; }
-
-.swiper-container .swiper-button-prev {
-  left: 5%; }
-
-.swiper-container .swiper-button-next {
-  right: 5%; }
-
-.swiper-container .swiper-pagination-bullet {
-  background: #ffffff;
-  height: 0.9375rem;
-  margin-right: 0.3125rem;
-  opacity: 1;
-  width: 0.9375rem; }
-  .swiper-container .swiper-pagination-bullet:last-child {
-    margin-right: 0; }
-  .swiper-container .swiper-pagination-bullet.swiper-pagination-bullet-active {
-    background: #369ff0; }
+.swiper-container {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDQiIGhlaWdodD0iNDQiIHZpZXdCb3g9IjAgMCA0NCA0NCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiMzNjlmZjAiPiAgICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZS13aWR0aD0iMiI+ICAgICAgICA8Y2lyY2xlIGN4PSIyMiIgY3k9IjIyIiByPSIxIj4gICAgICAgICAgICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJyIiAgICAgICAgICAgICAgICBiZWdpbj0iMHMiIGR1cj0iMS44cyIgICAgICAgICAgICAgICAgdmFsdWVzPSIxOyAyMCIgICAgICAgICAgICAgICAgY2FsY01vZGU9InNwbGluZSIgICAgICAgICAgICAgICAga2V5VGltZXM9IjA7IDEiICAgICAgICAgICAgICAgIGtleVNwbGluZXM9IjAuMTY1LCAwLjg0LCAwLjQ0LCAxIiAgICAgICAgICAgICAgICByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgLz4gICAgICAgICAgICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJzdHJva2Utb3BhY2l0eSIgICAgICAgICAgICAgICAgYmVnaW49IjBzIiBkdXI9IjEuOHMiICAgICAgICAgICAgICAgIHZhbHVlcz0iMTsgMCIgICAgICAgICAgICAgICAgY2FsY01vZGU9InNwbGluZSIgICAgICAgICAgICAgICAga2V5VGltZXM9IjA7IDEiICAgICAgICAgICAgICAgIGtleVNwbGluZXM9IjAuMywgMC42MSwgMC4zNTUsIDEiICAgICAgICAgICAgICAgIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPiAgICAgICAgPC9jaXJjbGU+ICAgICAgICA8Y2lyY2xlIGN4PSIyMiIgY3k9IjIyIiByPSIxIj4gICAgICAgICAgICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJyIiAgICAgICAgICAgICAgICBiZWdpbj0iLTAuOXMiIGR1cj0iMS44cyIgICAgICAgICAgICAgICAgdmFsdWVzPSIxOyAyMCIgICAgICAgICAgICAgICAgY2FsY01vZGU9InNwbGluZSIgICAgICAgICAgICAgICAga2V5VGltZXM9IjA7IDEiICAgICAgICAgICAgICAgIGtleVNwbGluZXM9IjAuMTY1LCAwLjg0LCAwLjQ0LCAxIiAgICAgICAgICAgICAgICByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgLz4gICAgICAgICAgICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJzdHJva2Utb3BhY2l0eSIgICAgICAgICAgICAgICAgYmVnaW49Ii0wLjlzIiBkdXI9IjEuOHMiICAgICAgICAgICAgICAgIHZhbHVlcz0iMTsgMCIgICAgICAgICAgICAgICAgY2FsY01vZGU9InNwbGluZSIgICAgICAgICAgICAgICAga2V5VGltZXM9IjA7IDEiICAgICAgICAgICAgICAgIGtleVNwbGluZXM9IjAuMywgMC42MSwgMC4zNTUsIDEiICAgICAgICAgICAgICAgIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPiAgICAgICAgPC9jaXJjbGU+ICAgIDwvZz48L3N2Zz4=");
+  background-repeat: no-repeat;
+  background-size: 3.125rem;
+  background-position: center center;
+  min-height: 12.5rem; }
+  .swiper-container .swiper-slide-visible,
+  .swiper-container .swiper-slide {
+    transition: height 0.3s ease; }
+  .swiper-container .swiper-button-prev,
+  .swiper-container .swiper-button-next,
+  .swiper-container .swiper-pagination-bullet,
+  .swiper-container .swiper-pagination-bullet-active {
+    transition: all 0.3s ease; }
+  .swiper-container .swiper-button-prev,
+  .swiper-container .swiper-button-next {
+    background-color: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    fill: #cda003;
+    height: 4.0625rem;
+    transition: all 0.3s ease;
+    width: 4.0625rem; }
+  .swiper-container .swiper-button-prev {
+    left: 5%; }
+  .swiper-container .swiper-button-next {
+    right: 5%; }
+  .swiper-container .swiper-pagination-bullet {
+    background: #ffffff;
+    height: 0.9375rem;
+    margin-right: 0.3125rem;
+    opacity: 1;
+    width: 0.9375rem; }
+    .swiper-container .swiper-pagination-bullet:last-child {
+      margin-right: 0; }
+    .swiper-container .swiper-pagination-bullet.swiper-pagination-bullet-active {
+      background: #369ff0; }
 
 /* ===========================================
  * Form with its particles
@@ -3460,7 +3499,7 @@ table td {
   background: #2c2d2f;
   font-size: 0.875rem;
   min-height: 8.75rem;
-  padding-top: 0.625rem;
+  padding: 0.625rem;
   position: relative;
   width: 100%; }
   .page-footer .useful-links__item--icon,
@@ -3473,7 +3512,8 @@ table td {
     text-align: center; }
     .page-footer .useful-links__item .useful-links__item--icon {
       color: #b3b3b3;
-      display: inline-block; }
+      display: inline-block;
+      min-height: 3.125rem; }
       .page-footer .useful-links__item .useful-links__item--icon:hover {
         color: #369ff0; }
         .page-footer .useful-links__item .useful-links__item--icon:hover .icon {

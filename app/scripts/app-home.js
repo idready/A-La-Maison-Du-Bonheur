@@ -1,43 +1,6 @@
 'use strict';
 
-// jQuery(document).ready( function() {
-
-    // jQuery('.js-slides').bxSlider({
-    //   adaptiveHeight: true, // Dynamically adjust slider height based on each slide's height
-    //   auto: true, // Slides will automatically transition
-    //   autoControls: false,
-    //   autoDelay: 0, // Time (in ms) auto show should wait before starting
-    //   controls: true,
-    //   autoHover: true, // Auto show will pause when mouse hovers over slider
-    //   easing: 'ease-in-out',
-    //   mode: 'horizontal', // Type of transition between slides
-    //   pager: true,
-    //   pagerType: 'full',
-    //   prevSelector: jQuery('#prev-slide'),
-    //   nextSelector: '#next-slide',
-    //   // prevText: 'text-prev',
-    //   // nextText: 'text-next'
-    // });
-
-  // if ($('.js-slides.lazyload').length < 1 ) { slides.startAuto(); }
-
-  // var mySwiper = new Swiper ('.swiper-wrapper', {
-  //   // Optional parameters
-  //   direction: 'horizontal',
-  //   loop: true,
-  //
-  //   // If we need pagination
-  //   pagination: '.swiper-pagination',
-  //
-  //   // Navigation arrows
-  //   nextButton: '.swiper-button-next',
-  //   prevButton: '.swiper-button-prev',
-  //
-  //   // And if we need scrollbar
-  //   scrollbar: '.swiper-scrollbar',
-  // });
-
-// });
+// jQuery(document).ready( function() {});
 
 // Lazysizes config && picture element pollyfill
 window.lazySizesConfig = window.lazySizesConfig || {};
@@ -67,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // swiper
   var mySwiper = new Swiper (document.querySelector('.swiper-container'), {
     // effect: 'fade',
+    preloadImages: false,
     slidesPerView: 1,
     paginationClickable: true,
     spaceBetween: 0,
@@ -77,6 +41,11 @@ document.addEventListener('DOMContentLoaded', function() {
     direction: 'horizontal',
     loop: true, //screw IE9
 
+    grabCursor: true, // usability, user will have a grab cursor
+
+    // watchSlidesProgress: true,
+    // watchSlidesVisibility: true, // add additional class to visible slides
+
     // If we need pagination
     pagination: '.swiper-pagination',
 
@@ -86,8 +55,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // And if we need scrollbar
     // scrollbar: '.swiper-scrollbar',
+
+    // animation and only display control once swiper loads
+    onInit: function() {
+
+      console.log('init');
+      window.setTimeout(function(){
+        document.querySelector('.swiper-pagination').classList.remove('hidden');
+        document.querySelector('.swiper-pagination').classList.add('fadeInUp', 'animated');
+        document.querySelector('.swiper-button-prev').classList.remove('hidden');
+        document.querySelector('.swiper-button-prev').classList.add('fadeInDown', 'animated');
+        document.querySelector('.swiper-button-next').classList.remove('hidden');
+        document.querySelector('.swiper-button-next').classList.add('fadeInDown', 'animated');
+      }, 1000);
+   }
+
   });
 
-  console.log(mySwiper);
+  console.log(mySwiper.progress);
+
 
 });

@@ -39,7 +39,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= config.app %>/scripts/{,*/}*.js'],
-        tasks: ['concat', 'uglify', 'jshint'],
+        tasks: ['newer:concat', 'newer:uglify', 'jshint'],
         options: {
           livereload: true
         }
@@ -53,14 +53,14 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['<%= config.app %>/sass/**/*.{scss,sass}'], // remember to prefer **/* folder match pattern for css
-        tasks: ['sass:server', 'autoprefixer:default'],
+        tasks: ['sass:server'/*, 'autoprefixer:default'*/],
         options: {
           livereload: true
         }
       },
       styles: {
         files: ['<%= config.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer:default']
+        tasks: [/*'newer:copy:styles',*/ 'autoprefixer:default']
       },
       svg: {
         files: [
@@ -230,6 +230,15 @@ module.exports = function (grunt) {
           ]
         }]
       },
+      images: {
+        files: [{
+          dot: true,
+          src: [
+            '<%= config.app %>/images/discover',
+            '<%= config.app %>/images/rooms',
+          ]
+        }]
+      },
       server: '.tmp'
     },
 
@@ -366,7 +375,64 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= config.app %>/images',
           src: '{,*/}*.{gif,jpeg,jpg,png}',
-          dest: '<%= config.dist %>/images'
+          dest: '<%= config.app %>/images'
+        }]
+      }
+    },
+
+    responsive_images: {
+
+      rooms: {
+        options: {
+          upscale: false,
+          engine: 'im', // set to avoid permissions warning
+          quality: 90, // 80% could be enough
+          aspectRation: false,
+          sizes: [{
+            name: '768',
+            // height: 500,
+            width: 768,
+          },{
+            name: '991',
+            // height: 500,
+            width: 991,
+          },{
+            name: '2500',
+            // height: 700,
+            width: 2500,
+          }]
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/images/assets/rooms/',
+          src: ['{,*/}*.{gif,jpeg,jpg,png}'],
+          dest: '<%= config.app %>/images/rooms/'
+        }]
+      },
+      discover: {
+        options: {
+          quality: 90, // 80% could be enough
+          upscale: true,
+          engine: 'im', // set to avoid permissions warning
+          sizes: [{
+            name: '300',
+            width: 300,
+          },{
+            name: '600',
+            width: 600,
+          },{
+            name: '991',
+            width: 991,
+          },{
+            name: '1200',
+            width: 1200,
+          }]
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/images/assets/discover/',
+          src: ['{,*/}*.{gif,jpeg,jpg,png}'],
+          dest: '<%= config.app %>/images/discover/'
         }]
       }
     },
@@ -511,27 +577,27 @@ module.exports = function (grunt) {
           dest: '<%= config.dist %>/.htaccess'
         }]
       },
-      styles: {
-        expand: true,
-        dot: true,
-        cwd: '<%= config.app %>/styles',
-        dest: '<%= config.app %>/styles/',
-        src: '{,*/}*.css'
-      }
+      // styles: {
+      //   expand: true,
+      //   dot: true,
+      //   cwd: '<%= config.app %>/styles',
+      //   dest: '<%= config.app %>/styles/',
+      //   src: '{,*/}*.css'
+      // }
     },
 
     // Run some tasks in parallel to speed up build process
     concurrent: {
       server: [
         'sass:server',
-        'copy:styles'
+        // 'copy:styles'
       ],
       test: [
-        'copy:styles'
+        // 'copy:styles'
       ],
       dist: [
         'sass',
-        'copy:styles',
+        // 'copy:styles',
         'imagemin',
         'svgmin'
       ]
@@ -590,7 +656,8 @@ module.exports = function (grunt) {
     'copy:dist',
     'rev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'responsive_images'
   ]);
 
   grunt.registerTask('default', [

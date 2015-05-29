@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // swiper
   var mySwiper = new Swiper (document.querySelector('.js-rooms-gallery'), {
+
+    preloadImages: false,
     // effect: 'fade',
     slidesPerView: 1,
     paginationClickable: true,
@@ -49,9 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // And if we need scrollbar
     // scrollbar: '.swiper-scrollbar',
+
   });
 
   var firstRoomSwiper = new Swiper (document.querySelector('.js-first-rooms-gallery'), {
+
+    preloadImages: false,
     effect: 'fade',
     slidesPerView: 1,
     paginationClickable: true,
@@ -73,9 +78,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // And if we need scrollbar
     // scrollbar: '.swiper-scrollbar',
+
+    // animation and only display control once swiper loads
+    onInit: function() {
+
+      window.setTimeout(function(){
+        document.querySelector('.first-room-pagination').classList.remove('hidden');
+        document.querySelector('.first-room-pagination').classList.add('fadeInUp', 'animated');
+        document.querySelector('.first-room-button-prev').classList.remove('hidden');
+        document.querySelector('.first-room-button-prev').classList.add('fadeInDown', 'animated');
+        document.querySelector('.first-room-button-next').classList.remove('hidden');
+        document.querySelector('.first-room-button-next').classList.add('fadeInDown', 'animated');
+      }, 1000);
+   }
+
   });
 
   var secondRoomSwiper = new Swiper (document.querySelector('.js-second-rooms-gallery'), {
+
+    preloadImages: false,
     effect: 'fade',
     slidesPerView: 1,
     paginationClickable: true,
@@ -97,6 +118,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // And if we need scrollbar
     // scrollbar: '.swiper-scrollbar',
+
+    // animation and only display control once swiper loads
+    onInit: function() {
+
+      window.setTimeout(function(){
+        document.querySelector('.second-room-pagination').classList.remove('hidden');
+        document.querySelector('.second-room-pagination').classList.add('fadeInUp', 'animated');
+        document.querySelector('.second-room-button-prev').classList.remove('hidden');
+        document.querySelector('.second-room-button-prev').classList.add('fadeInDown', 'animated');
+        document.querySelector('.second-room-button-next').classList.remove('hidden');
+        document.querySelector('.second-room-button-next').classList.add('fadeInDown', 'animated');
+      }, 1000);
+   }
+
   });
 
 

@@ -1,4 +1,4 @@
-/*! alamaison - v1.0.0 - 2015-05-22 *//*! svg4everybody v1.0.0 | github.com/jonathantneal/svg4everybody */
+/*! alamaison - v1.0.0 - 2015-05-29 *//*! svg4everybody v1.0.0 | github.com/jonathantneal/svg4everybody */
 (function(e,t,n,r,i){function s(t,n){if(n){var r=n.getAttribute("viewBox"),i=e.createDocumentFragment(),s=n.cloneNode(true);if(r){t.setAttribute("viewBox",r)}while(s.childNodes.length){i.appendChild(s.childNodes[0])}t.appendChild(i)}}function o(){var t=this,n=e.createElement("x"),r=t.s;n.innerHTML=t.responseText;t.onload=function(){r.splice(0).map(function(e){s(e[0],n.querySelector("#"+e[1].replace(/(\W)/g,"\\$1")))})};t.onload()}function u(){var i;while(i=t[0]){var a=i.parentNode,f=i.getAttribute("xlink:href").split("#"),l=f[0],c=f[1];a.removeChild(i);if(l.length){var h=r[l]=r[l]||new XMLHttpRequest;if(!h.s){h.s=[];h.open("GET",l);h.onload=o;h.send()}h.s.push([a,c]);if(h.readyState===4){h.onload()}}else{s(a,e.getElementById(c))}}n(u)}if(i){u()}})(document,document.getElementsByTagName("use"),window.requestAnimationFrame||window.setTimeout,{},/Trident\/[567]\b/.test(navigator.userAgent))
 ;/*! lazysizes - v1.1.2 -  Licensed MIT */
 !function(a,b){"use strict";function c(a,c){if(!e[a]){var d=b.createElement(c?"link":"script"),f=b.getElementsByTagName("script")[0];c?(d.rel="stylesheet",d.href=a):d.src=a,e[a]=!0,e[d.src||d.href]=!0,f.parentNode.insertBefore(d,f)}}var d,e={};b.addEventListener&&a.getComputedStyle&&(d=function(a,c){var d=b.createElement("img");d.onload=function(){d.onload=null,d.onerror=null,d=null,c()},d.onerror=d.onload,d.src=a,d&&d.complete&&d.onload&&d.onload()},addEventListener("lazybeforeunveil",function(b){var e,f,g,h;b.defaultPrevented||("none"==b.target.preload&&(b.target.preload="auto"),e=b.target.getAttribute("data-link"),e&&c(e,!0),e=b.target.getAttribute("data-script"),e&&c(e),e=b.target.getAttribute("data-require"),e&&a.require&&require([e]),g=b.target.getAttribute("data-bg"),g&&(b.detail.firesLoad=!0,f=function(){b.target.style.backgroundImage="url("+g+")",b.detail.firesLoad=!1,lazySizes.fire(b.target,"_lazyloaded",{},!0,!0)},d(g,f)),h=b.target.getAttribute("data-poster"),h&&(b.detail.firesLoad=!0,f=function(){b.target.poster=h,b.detail.firesLoad=!1,lazySizes.fire(b.target,"_lazyloaded",{},!0,!0)},d(h,f)))},!1))}(window,document);;/*! lazysizes - v1.1.2 -  Licensed MIT */
@@ -37,7 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // swiper
   var mySwiper = new Swiper (document.querySelector('.swiper-container'), {
-    effect: 'fade',
+
+    // initialSlide: Math.floor( Math.random(0, 3) ),
+    // effect: 'fade', //@TODO find out why fade effect is not working
+    preloadImages: false,
     slidesPerView: 1,
     paginationClickable: true,
     spaceBetween: 0,
@@ -58,6 +61,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // And if we need scrollbar
     wrapperClass: 'swiper-wrapper',
+
+    // onInit: function () {
+    //   console.log('init');
+    //   console.log(this);
+    // },
+    // onAutoplayStop: function() {
+    //   console.log('auto played');
+    // }
   });
 
 });

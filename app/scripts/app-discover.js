@@ -28,7 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // swiper
   var mySwiper = new Swiper (document.querySelector('.swiper-container'), {
-    effect: 'fade',
+
+    // initialSlide: Math.floor( Math.random(0, 3) ),
+    // effect: 'fade', //@TODO find out why fade effect is not working
+    preloadImages: false,
     slidesPerView: 1,
     paginationClickable: true,
     spaceBetween: 0,
@@ -49,6 +52,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // And if we need scrollbar
     wrapperClass: 'swiper-wrapper',
+
+    // onInit: function () {
+    //   console.log('init');
+    //   console.log(this);
+    // },
+    // onAutoplayStop: function() {
+    //   console.log('auto played');
+    // }
   });
 
 });
