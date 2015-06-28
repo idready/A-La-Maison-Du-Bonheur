@@ -13,6 +13,7 @@
   background-repeat: no-repeat;
   background-size: rem(50px);
   background-position: center;
+  border-bottom: rem(1px) solid gainsboro;
   min-height: rem(400px);
   transition: $default-transition;
 
@@ -22,8 +23,6 @@
   }
   #map-info-title {
     font-size: rem(22px);
-  }
-  #map-info-content {
   }
 
   // Responsiveness
@@ -44,6 +43,7 @@
   margin-bottom: rem(80px);
 
   .title {
+
     font-size: rem(45px);
     margin-bottom: 0;
 
@@ -67,6 +67,7 @@
 
     ul {padding-left: rem(20px);}
     .required {
+
       animation-fill-mode: forwards;
       color: $danger-color;
       list-style-type: disc;
@@ -74,6 +75,7 @@
     }
 
     .icon {
+
       display: inline-block;
       fill: $secondary-color;
       height: rem(30px);
@@ -98,7 +100,7 @@
     input[type="password"],
     textarea {
 
-      background: $secondary-color;
+      background: lighten($secondary-color, 10%);
       background-position: 0 0;
       border: rem(1px) solid $secondary-color;
       color: $primary-color;
@@ -116,7 +118,9 @@
       // &.user-email:invalid,
       &.validated,
       &.error {
-        border-color: $white;
+
+        border-style: solid;
+        border-width: rem(1px);
         color: $white;
         background-size: rem(25px);
         background-repeat: no-repeat;
@@ -127,17 +131,19 @@
       // valid
       // &.user-email:required,
       &:required {
-        background-color: $secondary-color;
+        background-color: lighten($secondary-color, 10%);
       }
       // invalid
       // &.user-email:invalid,
       &.error {
         background-color: $danger-color;
+        border-color: darken($danger-color, 10%);
       }
       // valid
       // &.user-email:valid,
       &.validated {
         background-color: $success-color;
+        border-color: darken($success-color, 10%);
       }
 
       //placeholder

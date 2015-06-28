@@ -12,8 +12,8 @@
 @mixin font-face($path, $style-name, $file, $family, $category: 'serif') {
 
     $filepath: $path + "/" + $file;
+    @warn '#{$filepath}';
 
-    @warn $filepath;
     @font-face {
         font-family: "#{$style-name}";
         src: url($filepath + ".eot");
@@ -25,10 +25,10 @@
     %#{$style-name} {
         font: {
             @if $category != "" {
-                family: "#{$style-name}", #{$category};
+                family: quote(#{$style-name}), #{$category};
             }
             @else {
-                family: "#{$style-name}";
+                family: quote(#{$style-name});
                 weight: normal;
             }
         }

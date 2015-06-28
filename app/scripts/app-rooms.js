@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var firstRoomSwiper = new Swiper (document.querySelector('.js-first-rooms-gallery'), {
 
     preloadImages: false,
-    effect: 'fade',
-    slidesPerView: 1,
+    // effect: 'fade',
+    slidesPerView: 'auto',
     paginationClickable: true,
     spaceBetween: 0,
     // autoplay
@@ -67,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Optional parameters
     direction: 'horizontal',
     loop: false, //screw IE9
+
+    grabCursor: true, // usability, user will have a grab cursor
 
     simulateTouch: false, // no need to add swipe event
     // If we need pagination
@@ -97,8 +99,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var secondRoomSwiper = new Swiper (document.querySelector('.js-second-rooms-gallery'), {
 
     preloadImages: false,
-    effect: 'fade',
-    slidesPerView: 1,
+    // effect: 'fade',
+    slidesPerView: 'auto',
     paginationClickable: true,
     spaceBetween: 0,
     // autoplay
@@ -107,6 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Optional parameters
     direction: 'horizontal',
     loop: false, //screw IE9
+
+    grabCursor: true, // usability, user will have a grab cursor
 
     simulateTouch: false, // no need to add swipe event
     // If we need pagination

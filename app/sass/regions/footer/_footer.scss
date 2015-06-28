@@ -9,6 +9,7 @@
  .page-footer {
 
    background: $primary-color;
+   color: darken($white, 30%);
    font-size: rem(14px);
    min-height: rem(140px);
    padding: rem(10px);
@@ -43,16 +44,22 @@
         display: inline-block;
         min-height: rem(50px);
 
-        &:hover {
+        // &:hover {
+        //
+        //   .icon {
+        //     // margin-right: rem(15px);
+        //   }
+        // }
+      }
+
+      a {
+
+        &.useful-links__item--icon:hover {
 
           color: $secondary-color;
-
-          .icon {
-            margin-right: rem(15px);
-          }
         }
-
       }
+
 
       .icon {
         display: inline-block;
@@ -77,11 +84,54 @@
        text-align: center;
     }
 
+    .imprint,
+    .useful-infos {
+
+      animation-fill-mode: forwards;
+      font-size: rem(14px);
+      transition: $default-transition;
+
+      &.hideElt {
+
+        display: none;
+        opacity: 0;
+      }
+      &.showElt {
+        
+        display: block;
+        height: auto;
+        opacity: 1;
+      }
+    }
+
+    // imprint
+    .imprint {
+      text-align: left;
+
+      .text {
+        margin-bottom: rem(10px);
+      }
+    }
+    // location map
+    .useful-infos {
+
+      .useful-infos-link {
+
+        color: darken($white, 30%);
+        display: inline-block;
+        margin-bottom: rem(10px);
+
+        &:hover {
+          color: $secondary-color;
+        }
+
+      }
+    }
+
     // Responsiveness
     @include mq(md) {
 
       .useful-links__item {
-
         // min-height: rem(50px); avoid animation break and define a min-height for unless two lines
       }
 

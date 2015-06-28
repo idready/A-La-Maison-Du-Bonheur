@@ -53,13 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // And if we need scrollbar
     wrapperClass: 'swiper-wrapper',
 
-    // onInit: function () {
-    //   console.log('init');
-    //   console.log(this);
-    // },
-    // onAutoplayStop: function() {
-    //   console.log('auto played');
-    // }
   });
 
 });

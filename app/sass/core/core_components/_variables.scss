@@ -70,11 +70,11 @@ $line-height-computed: floor(($base-font-size * $base-line-height)) !default; //
 /* Font-face names
  * ==================================== */
 
-$pt-sans-regular-path: 'fonts/PT-Sans/Regular/';
+$pt-sans-regular-path: 'fonts/PT-Sans/Regular';
 $pt-sans-regular: 'PT-Sans-Regular';
-$pt-sans-bold-path: 'fonts/PT-Sans/Bold/';
+$pt-sans-bold-path: 'fonts/PT-Sans/Bold';
 $pt-sans-bold: 'PT-Sans-Bold';
-$pt-sans-italic-path: 'fonts/PT-Sans/Italic/';
+$pt-sans-italic-path: 'fonts/PT-Sans/Italic';
 $pt-sans-italic: 'PT-Sans-Italic';
 
 /* Animations

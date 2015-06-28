@@ -60,7 +60,7 @@ module.exports = function (grunt) {
       },
       styles: {
         files: ['<%= config.app %>/styles/{,*/}*.css'],
-        tasks: [/*'newer:copy:styles',*/ 'autoprefixer:default']
+        tasks: [/*'newer:copy:styles',*/ 'newer:autoprefixer:default']
       },
       svg: {
         files: [
@@ -384,10 +384,10 @@ module.exports = function (grunt) {
 
       rooms: {
         options: {
-          upscale: false,
+          upscale: true,
           engine: 'im', // set to avoid permissions warning
           quality: 90, // 80% could be enough
-          aspectRation: false,
+          aspectRation: true,
           sizes: [{
             name: '768',
             // height: 500,
@@ -398,8 +398,8 @@ module.exports = function (grunt) {
             width: 991,
           },{
             name: '2500',
-            // height: 700,
-            width: 2500,
+            height: 700,
+            // width: 2500,
           }]
         },
         files: [{

@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var mySwiper = new Swiper (document.querySelector('.swiper-container'), {
     // effect: 'fade',
     preloadImages: false,
-    slidesPerView: 1,
+    slidesPerView: 'auto',
     paginationClickable: true,
     spaceBetween: 0,
     // autoplay
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     autoplayDisableOnInteraction: false,
     // Optional parameters
     direction: 'horizontal',
-    loop: true, //screw IE9
+    loop: false, //screw IE9
 
     grabCursor: true, // usability, user will have a grab cursor
 
@@ -59,20 +59,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // animation and only display control once swiper loads
     onInit: function() {
 
-      console.log('init');
-      window.setTimeout(function(){
-        document.querySelector('.swiper-pagination').classList.remove('hidden');
-        document.querySelector('.swiper-pagination').classList.add('fadeInUp', 'animated');
-        document.querySelector('.swiper-button-prev').classList.remove('hidden');
-        document.querySelector('.swiper-button-prev').classList.add('fadeInDown', 'animated');
-        document.querySelector('.swiper-button-next').classList.remove('hidden');
-        document.querySelector('.swiper-button-next').classList.add('fadeInDown', 'animated');
-      }, 1000);
+      document.querySelector('.swiper-pagination').classList.remove('hidden');
+      document.querySelector('.swiper-pagination').classList.add('fadeInUp', 'animated');
+      document.querySelector('.swiper-button-prev').classList.remove('hidden');
+      document.querySelector('.swiper-button-prev').classList.add('fadeInDown', 'animated');
+      document.querySelector('.swiper-button-next').classList.remove('hidden');
+      document.querySelector('.swiper-button-next').classList.add('fadeInDown', 'animated');
    }
 
   });
 
-  console.log(mySwiper.progress);
+  mySwiper.onResize(function(){
+    console.log('heh');
+  });
 
 
 });

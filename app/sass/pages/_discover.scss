@@ -21,7 +21,8 @@
 
   &::before {
 
-    background-color: rgba(205, 160, 3, 0.5);
+    background-color: rgba(44, 45, 47, 0.8);
+    // background-color: rgba(117, 125, 138, 0.8);
     content: '';
     height: 100%;
     position: absolute;
@@ -124,9 +125,14 @@
 
     .location-name {
 
+      color: $primary-color;
       font-family: $pt-sans-bold;
       font-size: rem(30px);
       margin-bottom: rem(40px);
+
+      &:hover {
+        color: $secondary-color;
+      }
     }
     .location-descrp,
     .location-address,
