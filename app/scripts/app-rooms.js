@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
     direction: 'horizontal',
     loop: false, //screw IE9
 
-    grabCursor: true, // usability, user will have a grab cursor
+    grabCursor: false, // usability, user will have a grab cursor
 
     simulateTouch: false, // no need to add swipe event
     // If we need pagination
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     direction: 'horizontal',
     loop: false, //screw IE9
 
-    grabCursor: true, // usability, user will have a grab cursor
+    grabCursor: false, // usability, user will have a grab cursor
 
     simulateTouch: false, // no need to add swipe event
     // If we need pagination

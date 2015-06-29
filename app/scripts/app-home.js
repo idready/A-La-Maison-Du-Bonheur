@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     paginationClickable: true,
     spaceBetween: 0,
     // autoplay
-    autoplay: 2500,
+    autoplay: 3500,
     autoplayDisableOnInteraction: false,
     // Optional parameters
     direction: 'horizontal',

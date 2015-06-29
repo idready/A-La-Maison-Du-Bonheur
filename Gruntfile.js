@@ -272,6 +272,8 @@ module.exports = function (grunt) {
     // https://github.com/sass/libsass/issues/263
     sass: {
       options: {
+        // outputStyle: compressed,
+        outputStyle: 'compressed',
         sourceMap: true, // This crashed libsass compile and generate : Segmentation fault (core dumped) error
         includePaths: ['bower_components']
         },

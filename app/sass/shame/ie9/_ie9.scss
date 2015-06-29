@@ -6,3 +6,19 @@
 
 /* IE rules
  * ==================================== */
+
+ .browsehappy {
+
+   background: $danger-color;
+   color: $white;
+   padding: rem(10px);
+   text-align: center;
+
+   a {
+     color: $primary-color;
+
+     &:hover {
+       color: $secondary-color;
+     }
+   }
+ }
