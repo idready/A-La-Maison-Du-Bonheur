@@ -183,6 +183,15 @@ module.exports = function (grunt) {
                 '<%= config.app %>/scripts/main.js'],
           dest: '<%= config.app %>/scripts/our-rooms_dev.js',
         },
+        errors: {
+          src: ['bower_components/lazysizes/plugins/unveilhooks/ls.unveilhooks.min.js',
+                'bower_components/lazysizes/lazysizes.min.js',
+                'bower_components/lazysizes/plugins/bgset/ls.bgset.min.js',
+                'bower_components/lazysizes/plugins/optimumx/ls.optimumx.min.js',
+                'bower_components/lazysizes/plugins/respimg/ls.respimg.min.js',
+                '<%= config.app %>/scripts/main.js'],
+          dest: '<%= config.app %>/scripts/errors_dev.js',
+        },
         dist: {}
     },
 
@@ -214,6 +223,10 @@ module.exports = function (grunt) {
       ourRooms: {
         src: ['<%= config.app %>/scripts/our-rooms_dev.js'],
         dest: '<%= config.app %>/scripts/our-rooms.js',
+      },
+      errors: {
+        src: ['<%= config.app %>/scripts/errors_dev.js'],
+        dest: '<%= config.app %>/scripts/errors.js',
       },
       dist: {}
     },
@@ -435,6 +448,26 @@ module.exports = function (grunt) {
           cwd: '<%= config.app %>/images/assets/discover/',
           src: ['{,*/}*.{gif,jpeg,jpg,png}'],
           dest: '<%= config.app %>/images/discover/'
+        }]
+      },
+      errors: {
+        options: {
+          quality: 90, // 80% could be enough
+          upscale: true,
+          engine: 'im', // set to avoid permissions warning
+          sizes: [{
+            name: '750',
+            width: 750,
+          },{
+            name: '991',
+            width: 991,
+          }]
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/images/assets/errors/',
+          src: ['{,*/}*.{gif,jpeg,jpg,png}'],
+          dest: '<%= config.app %>/images/errors/'
         }]
       }
     },

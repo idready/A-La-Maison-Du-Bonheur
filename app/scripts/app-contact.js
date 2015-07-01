@@ -86,98 +86,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   var errors = [];
 
-  // controls
-
-  // first name
-  // fNameField.addEventListener('blur', function(e){
-  //
-  //   if (!fNameField.value.match(regName)) {
-  //     // fNameField.classList.add('error');
-  //     fNameField.classList.remove('validated');
-  //     // if(errors.indexOf('user-first-name') == -1) errors.push('user-first-name');
-  //     // document.querySelector('.user-first-name').classList.remove('hidden');
-  //   } else {
-  //     // fNameField.classList.remove('error');
-  //     fNameField.classList.add('validated');
-  //     errors = [];
-  //     // document.querySelector('.user-first-name').classList.add('hidden');
-  //     // console.log(errors);
-  //   }
-  //
-  // });
-
-  // first name
-  // fNameField.addEventListener('blur', function(e){
-  //
-  //   if (!fNameField.value.match(regName)) {
-  //     // fNameField.classList.add('error');
-  //     fNameField.classList.remove('validated');
-  //     // if(errors.indexOf('user-first-name') == -1) errors.push('user-first-name');
-  //     // document.querySelector('.user-first-name').classList.remove('hidden');
-  //   } else {
-  //     // fNameField.classList.remove('error');
-  //     fNameField.classList.add('validated');
-  //     errors = [];
-  //     // document.querySelector('.user-first-name').classList.add('hidden');
-  //     // console.log(errors);
-  //   }
-  //
-  // });
-
-  // name
-  // nameField.addEventListener('blur', function(e){
-  //
-  //   if (!nameField.value.match(regName)) {
-  //     nameField.classList.add('error');
-  //     nameField.classList.remove('validated');
-  //     if(errors.indexOf('user-name-error') == -1) errors.push('user-name-error');
-  //     // document.querySelector('.user-name-error').classList.remove('hidden');
-  //   } else {
-  //     nameField.classList.remove('error');
-  //     nameField.classList.add('validated');
-  //     errors = [];
-  //     // document.querySelector('.user-name-error').classList.add('hidden');
-  //     // console.log(errors);
-  //   }
-  //
-  // });
-
-  // subject
-  // subjectField.addEventListener('blur', function(e){
-  //
-  //   if (!subjectField.value.match(regName)) {
-  //     // subjectField.classList.add('error');
-  //     subjectField.classList.remove('validated');
-  //     // if(errors.indexOf('user-subject') == -1) errors.push('user-subject');
-  //     // document.querySelector('.user-subject').classList.remove('hidden');
-  //   } else {
-  //     // subjectField.classList.remove('error');
-  //     subjectField.classList.add('validated');
-  //     errors = [];
-  //     // document.querySelector('.user-subject').classList.add('hidden');
-  //     // console.log(errors);
-  //   }
-  //
-  // });
-
-  // email
-  // emailField.addEventListener('blur', function(e){
-  //
-  //   if (!emailField.value.match(regName)) {
-  //     emailField.classList.add('error');
-  //     emailField.classList.remove('validated');
-  //     if(errors.indexOf('user-email') == -1) errors.push('user-email');
-  //     // document.querySelector('.user-first-name').classList.remove('hidden');
-  //   } else {
-  //     emailField.classList.remove('error');
-  //     emailField.classList.add('validated');
-  //     errors = [];
-  //     // document.querySelector('.user-first-name').classList.add('hidden');
-  //     // console.log(errors);
-  //   }
-  //
-  // });
-
   // boot proof
   bootProof.addEventListener('blur', function(e){
 
@@ -254,12 +162,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   }
 
-  // document.querySelectorAll('input')[2].addEventListener('invalid', function(e){
-  //       console.log('invalid fired');
-  //       console.log(e);
-  //   }, false);
-  // document.getElementById('user-email').addEventListener('invalid', function(e) { console.log(e); });
-  // form.addEventListener('invalid', function(e) { console.log('form'); });
 
   // form final validation
   form.addEventListener('submit', function(e){
@@ -269,7 +171,19 @@ document.addEventListener('DOMContentLoaded', function(event) {
     if (errors.length) {
       return false;
     } else {
-      alert('Envoi du formulaire');
+
+      var formDatas = new FormData(this);
+      console.log(formDatas);
+      var request = new XMLHttpRequest();
+      request.open("POST", "handle-mail.php", true);
+      request.onreadystatechange = function () {
+        if (request.readyState != 4 || request.status != 200) return;
+        console.log("Success: " + request.responseText);
+      };
+      request.send(formDatas);
+
+      console.log(this);
+      // alert('Envoi du formulaire');
       // form.submit();
       return false;
     }

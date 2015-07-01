@@ -1,0 +1,93 @@
+
+/* ===========================================
+ * Specific rules a page
+ * =========================================== */
+
+/* Specific rule for a page
+ * ==================================== */
+
+body {
+
+
+}
+
+.not-found {
+
+  @include parent-element-vertical-align;
+  background: $secondary-color;
+  min-height: 100vh;
+
+
+  .error-message {
+
+    @include vertical-align;
+    position: absolute;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    right: 0;
+
+    .error-message__illustr,
+    .back-home {
+
+      transition: $default-transition;
+    }
+
+    .error-message__illustr {
+
+      border: rem(2px) solid $white;
+      margin-bottom: rem(20px);
+      max-width: 80%;
+    }
+    .error-message__text {
+
+      display: block;
+      color: $white;
+      font-size: rem(20px);
+      text-align: center;
+    }
+    &:first-child .error-message__text {
+
+      margin-bottom: rem(20px);
+    }
+    .back-home {
+
+      color: $primary-color;
+
+      &:hover {
+        color: $brand-yellow;
+      }
+
+    }
+  }
+
+  // Responsiveness
+  @include mq('sm') {
+
+    .error-message {
+
+      .error-message__text {
+
+        font-size: rem(45px);
+      }
+
+      .error-message__illustr {
+
+        max-width: 90%;
+      }
+    }
+  }
+
+  @include mq('md') {
+
+    .error-message {
+
+      .error-message__illustr {
+
+        max-width: 60%;
+      }
+    }
+  }
+
+}

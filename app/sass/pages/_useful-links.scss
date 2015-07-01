@@ -6,10 +6,53 @@
 /* Specific rule for a page
  * ==================================== */
 
+body {
+
+  background: $secondary-color;
+}
+
 .useful-links {
+
+  margin-top: rem(50px);
+
+  .useful-links__items {
+
+    padding-left: rem(20px);
+    margin: rem(40px) 0;
+  }
+
+  .useful-links__link {
+
+    font-size: rem(22px);
+    list-style-type: disc;
+    margin: rem(20px) 0;
+
+    a {
+
+      color: $white;
+      transition: $default-transition;
+
+      &:hover {
+        color: $primary-color;
+        margin-left: 10px;
+      }
+    }
+  }
 
   // Responsiveness
   @include mq('sm') {
+  }
+
+}
+
+// Responsiveness
+@include mq('sm') {
+
+   //@TODO done in rush, make more simple
+  .page-footer {
+
+    bottom: 0;
+    position: fixed;
   }
 
 }
