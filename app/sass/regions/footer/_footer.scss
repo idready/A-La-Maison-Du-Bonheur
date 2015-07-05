@@ -34,7 +34,7 @@
    // link itself
    .useful-links__item {
 
-      margin-bottom: rem(30px);
+      // margin-bottom: rem(30px);
       text-align: center;
 
       // @TODO: change this modifier name
@@ -97,7 +97,7 @@
         opacity: 0;
       }
       &.showElt {
-        
+
         display: block;
         height: auto;
         opacity: 1;
@@ -125,6 +125,29 @@
           color: $secondary-color;
         }
 
+      }
+    }
+
+    .social-links {
+
+      text-align: center;
+
+      .social-links__item {
+
+        display: inline-block;
+        margin: rem(20px) 0;
+
+        .icon {
+
+          fill: $secondary-color;
+          height: rem(25px);
+          width: rem(25px);
+
+          &:hover {
+
+            fill: $white;
+          }
+        }
       }
     }
 

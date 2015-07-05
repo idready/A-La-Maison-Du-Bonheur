@@ -134,11 +134,16 @@
         color: $secondary-color;
       }
     }
+    .location-name,
+    .location-descrp,
+    .location-address,
+    .location-link {
+      transition: $default-transition;
+    }
     .location-descrp,
     .location-address,
     .location-link {
       font-size: rem(20px);
-      transition: $default-transition;
     }
     .location-address  {
 

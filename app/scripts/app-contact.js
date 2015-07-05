@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   // var regEmail = '/^(([^<>()[]\.,;:s@"]+(.[^<>()[]\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/';
   var messageField = document.getElementById('user-text-message');
   // botTest
+  // @TODO: Make sure 0 never is never use
   var bootProof = document.getElementById('boot-proof');
   var operandOne = Math.floor(Math.random(1, 5) * 10);
   var operandTwo = Math.floor(Math.random(1, 5) * 10);
@@ -94,9 +95,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
       bootProof.classList.remove('validated');
       if(errors.indexOf('user-botProof-error') == -1) errors.push('user-botProof-error');
       bootProof.value = '';
-      // document.querySelector('.user-botProof-error').classList.remove('hidden');
-      // console.log('state: invalid');
-      // console.log(errors);
+
     } else {
       bootProof.classList.remove('error');
       bootProof.classList.add('validated');
@@ -169,24 +168,99 @@ document.addEventListener('DOMContentLoaded', function(event) {
     e.preventDefault();
 
     if (errors.length) {
+
       return false;
     } else {
 
       var formDatas = new FormData(this);
-      console.log(formDatas);
+      // console.log(formDatas);
       var request = new XMLHttpRequest();
       request.open("POST", "handle-mail.php", true);
       request.onreadystatechange = function () {
+
         if (request.readyState != 4 || request.status != 200) return;
-        console.log("Success: " + request.responseText);
+
+        var notifMsg = document.querySelector('.msg-notif'); // notification block
+        var datas = JSON.parse(request.responseText);
+
+        // in both case show the block
+        if(notifMsg.classList.contains('hidden')) { notifMsg.classList.remove('hidden'); }
+
+        if (datas.status) {
+
+          if(notifMsg.classList.contains('error')) { notifMsg.classList.remove('error'); } // no collision
+          notifMsg.querySelector('.text').innerHTML = datas.message;
+          notifMsg.classList.add('success', 'animated');
+
+          // reset form and remove validation classes
+          resetForm(form, 'validated');
+        } else {
+
+          if(notifMsg.classList.contains('success')) { notifMsg.classList.remove('success'); } // no collision
+          notifMsg.querySelector('.text').innerHTML = datas.message;
+          notifMsg.classList.add('error', 'animated');
+        }
+        // Close
+        notifMsg.querySelector('.close').addEventListener('click', function(evt){
+
+            evt.preventDefault();
+            notifMsg.classList.add('fadeOutBig', 'animated');
+            notifMsg.classList.add('hidden');
+
+            // window.setTimeout(funtion(){
+            //   notifMsg.classList.remove('fadeOutBig');
+            //   notifMsg.classList.add('hidden');
+            // }, 500);
+        });
+
       };
       request.send(formDatas);
 
-      console.log(this);
-      // alert('Envoi du formulaire');
-      // form.submit();
       return false;
     }
   });
+
+  // @TODO: reset robot check
+
+
+  function resetForm(form, aClass) {
+
+      var clearClass = (aClass.length > 0) ? true : false;
+      // clearing inputs
+      var inputs = form.getElementsByTagName('input');
+      for (var i = 0; i<inputs.length; i++) {
+
+          if (clearClass) {
+            if (inputs[i].classList.contains('' + aClass)) inputs[i].classList.remove('' + aClass);
+          }
+          switch (inputs[i].type) {
+              // case 'hidden':
+              case 'text':
+              case 'email':
+              case 'number':
+                  inputs[i].value = '';
+                  break;
+              case 'radio':
+              case 'checkbox':
+                  inputs[i].checked = false;
+          }
+      }
+
+      // clearing selects
+      var selects = form.getElementsByTagName('select');
+      for (var i = 0; i<selects.length; i++) {
+          selects[i].selectedIndex = 0;
+          if (selects[i].classList.contains('' + aClass)) selects[i].classList.remove('' + aClass);
+      }
+
+      // clearing textarea
+      var text= form.getElementsByTagName('textarea');
+      for (var i = 0; i<text.length; i++) {
+          if (text[i].classList.contains('' + aClass)) text[i].classList.remove('' + aClass);
+          text[i].value= '';
+      }
+
+      return false;
+  }
 
 });

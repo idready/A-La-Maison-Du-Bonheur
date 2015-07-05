@@ -1,7 +1,5 @@
 'use strict';
 
-// jQuery(document).ready( function() {});
-
 // Lazysizes config && picture element pollyfill
 window.lazySizesConfig = window.lazySizesConfig || {};
 
@@ -27,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Lazyload all images and avoid blank images when windows is not fully loaded
   window.lazySizes.init();
 
+  console.log('top');
   // swiper
   var mySwiper = new Swiper (document.querySelector('.swiper-container'), {
     // effect: 'fade',
@@ -59,6 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // animation and only display control once swiper loads
     onInit: function() {
 
+      console.info('init slider');
+
       document.querySelector('.swiper-pagination').classList.remove('hidden');
       document.querySelector('.swiper-pagination').classList.add('fadeInUp', 'animated');
       document.querySelector('.swiper-button-prev').classList.remove('hidden');
@@ -68,10 +69,5 @@ document.addEventListener('DOMContentLoaded', function() {
    }
 
   });
-
-  mySwiper.onResize(function(){
-    console.log('heh');
-  });
-
 
 });

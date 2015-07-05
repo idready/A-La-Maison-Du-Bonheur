@@ -85,8 +85,8 @@
                 </div>
                 <div class="contact-form__infos-item phone">
                   <span class="picto">
-                    <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-phone" /></svg>
-                    02 43 50 50 90
+                    <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-smartphone" /></svg>
+                    Mobile: 06 80 57 62 31  <i>ou</i>  06 73 57 39 23
                   </span>
                 </div>
                 <div class="contact-form__infos-item email">
@@ -98,7 +98,7 @@
               </div>
               <!-- Form fileds -->
               <div class="contact-form__fields">
-                <form action="/" method="post" id="contact-form">
+                <form action="/" method="post" id="contact-form" autocomplete="false">
                   <div class="fields-errors span-xs-12">
                     <p><svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-notice" /></svg>Merci de remplir les champs obligatoires pour envoyer votre mail.</p>
                   </div>
@@ -114,6 +114,7 @@
                     <textarea placeholder="Votre message...*" name="user-text-message" id="user-text-message" cols="30" rows="10" class="user-text-message" required></textarea>
                   </div>
                   <div class="span-xs-6 form-block">
+                    <label for="boot-proof" class="b-proof">Donner une réponse correcte avant d'envoyer votre message.</label>
                     <input type="number" placeholder="" name="boot-proof" class="boot-proof" id="boot-proof" required>
                   </div>
                   <div class="span-xs-12 form-block">
@@ -148,15 +149,23 @@
           <div class="span-xs-6 span-sm-4 useful-links__item">
             <span class="useful-links__item--icon">
               <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-phone" /></svg>
-              02 41 00 90 80
+              06 80 57 62 31 - 06 73 57 39 23
             </span>
           </div>
+        </div>
+        <div class="span-xs-12 social-links">
+          <a title="Notre page facebook" target="_blank" href="https://www.facebook.com/alamaisondubonheur" class="social-links__item">
+            <svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-facebook" /></svg>
+          </a>
         </div>
         <p class="cp">Tous droits réservés &copy;2015</p>
       </footer>
 
     </main>
-
+    <div class="msg-notif hidden fadeInDownBig">
+      <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+      <span class="close"><svg class="icon"><use xlink:href="images/svg/icons-defs.svg#shape-icon-close" /></svg></span>
+    </div>
     <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -165,7 +174,6 @@
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-64666051-1');ga('send','pageview');
     </script>
-    <script src="scripts/contact.js" async></script>
-
+    <script src="scripts/contact.js"></script>
 </body>
 </html>

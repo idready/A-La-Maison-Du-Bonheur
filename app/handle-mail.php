@@ -1,7 +1,6 @@
 
 <?php
 
-  ini_set("SMTP","smtp.live.com");
 
   if(isset($_POST['boot-proof'])) {
 
@@ -11,25 +10,23 @@
     $subject = htmlentities( strip_tags($_POST['user-subject']) );
     $message = htmlentities( strip_tags($_POST['user-text-message']) );
 
-    var_dump($email);
-
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
       echo 'Email invalide, merci de modifier votre email.';
       return false;
     }
 
-    $to = 'dude72@hotmail.fr';
+    $to = 'chambresdhotesmaze@gmail.com';
     $body = '<!doctype html><html><head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Message depuis alamaisondubonheur.fr</title>
       </head>
       <body>
         <p>Information sur l\'exp&eacute;diteur du message</p>
-        <p>Nom: '.$name.'</p>
-        <p>Pr&eacute;nom: '.$firstName.'</p>
-        <p>Email: '.$email.'</p>
-        <p>Son message:<br /><br /> '.$message.'</p>
+        <p>Nom: <strong>'.$name.'</strong></p>
+        <p>Pr&eacute;nom: <strong>'.$firstName.'</strong></p>
+        <p>Email: <strong>'.$email.'</p>
+        <p>Son message:<br /><br /> <strong>'.$message.'</strong></p>
       </body>
       </html>
       ';
@@ -42,10 +39,10 @@
 
     if( mail($to, $subject, $body, $headers) ) {
 
-      echo 'Message envoyé avec succès';
+      echo json_encode(array('message' => 'Votre message a été envoyé avec succès.', 'status' => true));
     } else {
 
-      echo 'Message non envoyé, merci de réessayer.';
+      echo json_encode(array('message' => 'Echec de l\'envoi, merci d\'envoyer de nouveau.', 'status' => false));
     }
 
 

@@ -132,18 +132,37 @@
       // &.user-email:required,
       &:required {
         background-color: lighten($secondary-color, 10%);
+
+        &:-webkit-autofill{
+          -webkit-box-shadow: 0 0 0px 1000px lighten($secondary-color, 10%) inset;
+        }
       }
       // invalid
       // &.user-email:invalid,
       &.error {
         background-color: $danger-color;
         border-color: darken($danger-color, 10%);
+
+        //Added !important to disable chrome autofill style; i lost this fight...so I FIGHT BACK!
+        &:-webkit-autofill{
+          background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNTciIGhlaWdodD0iMzU3IiB2aWV3Qm94PSIwIDAgMzU3IDM1NyI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTM1NyAzNS43TDMyMS4zIDAgMTc4LjUgMTQyLjggMzUuNyAwIDAgMzUuN2wxNDIuOCAxNDIuOEwwIDMyMS4zIDM1LjcgMzU3bDE0Mi44LTE0Mi44TDMyMS4zIDM1N2wzNS43LTM1LjctMTQyLjgtMTQyLjgiLz48L3N2Zz4=') !important;
+          -webkit-box-shadow: 0 0 0px 1000px lighten($secondary-color, 10%) inset;
+        }
       }
       // valid
       // &.user-email:valid,
       &.validated {
         background-color: $success-color;
         border-color: darken($success-color, 10%);
+
+        &:-webkit-autofill{
+          background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NDguOCIgaGVpZ2h0PSI0NDguOCIgdmlld0JveD0iMCAwIDQ0OC44IDQ0OC44Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTE0Mi44IDMyMy44NUwzNS43IDIxNi43NSAwIDI1Mi40NWwxNDIuOCAxNDIuOCAzMDYtMzA2LTM1LjctMzUuNyIvPjwvc3ZnPg==') !important;
+          -webkit-box-shadow: 0 0 0px 1000px $success-color inset;
+        }
+      }
+
+      &:-webkit-autofill{
+        -webkit-box-shadow: 0 0 0px 1000px lighten($secondary-color, 10%) inset;
       }
 
       //placeholder
@@ -175,6 +194,9 @@
       margin: rem(10px) 0;
     }
 
+    .b-proof {
+      color: $secondary-color;
+    }
     // submit button
     .send-mail {
       margin-top: rem(10px);
@@ -182,9 +204,6 @@
       padding-right: rem(40px);
     }
   }
-
-  // useful infos
-  .contact-form__infos {}
 
   .contact-form__infos-item {
 
@@ -267,4 +286,44 @@
 
   }
 
+}
+
+.msg-notif {
+
+  @include parent-element-vertical-align;
+  background: $primary-color;
+  border-bottom: rem(1px) solid $white;
+  color: $white;
+  font-size: 22px;
+  padding: rem(10px);
+  position: fixed;
+  transition: $default-transition;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+
+  &.error {
+    background: $danger-color;
+  }
+
+  &.success {
+    background: $success-color;
+  }
+
+  .close {
+
+    @include vertical-align;
+    cursor: pointer;
+    display: block;
+    padding: rem(10px);
+    position: absolute;
+    right: 10px;
+
+    .icon {
+      height: rem(20px);
+      fill: $white;
+      width: rem(20px);
+    }
+  }
 }

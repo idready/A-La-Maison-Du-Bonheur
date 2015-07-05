@@ -10,3 +10,22 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
   );
   document.querySelector('head').appendChild(msViewportStyle);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  // handle animation
+  document.addEventListener('animationend', function(e) {
+  // footer links
+  // @TODO: create function
+
+    var animation = e;
+    animation.target.classList.remove('animated');
+  });
+  document.addEventListener('webkitAnimationEnd', function(e) {
+
+    var animation = e;
+    animation.target.classList.remove('animated');
+  });
+
+
+});
