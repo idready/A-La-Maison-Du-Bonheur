@@ -4,6 +4,7 @@ dist
 .tmp
 .sass-cache
 app/.sass-cache
+app/handle-mail.php
 bower_components
 Vagrantfile
 
