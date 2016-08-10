@@ -30,6 +30,7 @@ app/wp/wp-config.php
 
 # ignore all files starting with .
 app/wp/.*
+app/wp/wp-content/.*
 
 # ignore all files that start with ~
 app/wp/~*
@@ -65,10 +66,17 @@ app/wp/*.zip
 # "mu-plugins" directory
 # "plugins" directory
 # "themes" directory
-app/wp/wp-content/*
+#app/wp/wp-content/*
 app/wp/!wp-content/mu-plugins/
-app/wp/!wp-content/plugins/
+app/wp/wp-content/plugins/
 app/wp/!wp-content/themes/
+app/wp/!wp-content/upgrade/
+app/wp/wp-content/languages/
+app/wp/wp-includes/
+app/wp/wp-admin/*
+app/wp/wp-content/uploads/
+
+app/wp/wp-content/plugins/
 
 # ignore these plugins
 app/wp/wp-content/plugins/hello.php
